@@ -24,13 +24,33 @@
   </header>
 
   <main class="container">
-    <section class="detail-hero">
+    <section class="detail-hero fade-in">
       <p class="tag">Painting / 2024</p>
       <h1>Riverlight</h1>
       <p>清晨的河面與霧，光線被柔化後在水波上留下細微脈動。以疊色與濕畫法表現空氣感與時間流動。</p>
     </section>
 
-    <section class="detail-body">
+    <section class="section fade-in">
+      <div class="transition-scene">
+        <div class="layer back" data-parallax data-speed="0.05"></div>
+        <div class="layer mid" data-parallax data-speed="0.12"></div>
+        <div class="layer front" data-parallax data-speed="0.2"></div>
+        <div class="orbs">
+          <div class="orb" style="top: 20%; left: 18%;" data-parallax data-speed="0.18"></div>
+          <div class="orb small" style="top: 42%; right: 18%;" data-parallax data-speed="0.24"></div>
+          <div class="orb" style="bottom: 16%; left: 36%;" data-parallax data-speed="0.1"></div>
+        </div>
+        <div class="content">
+          <div>
+            <p class="tag">Transition</p>
+            <h2>推入作品敘事</h2>
+            <p>以視差與光暈做章節切換，保持沉浸感。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-body fade-in">
       <div class="detail-media">
         <img src="assets/images/full/riverlight-full.svg" alt="Riverlight" />
         <p class="note">尺寸：54 x 34 cm ・ 水彩 + 數位後製</p>
@@ -56,5 +76,6 @@
       </div>
     </div>
   </footer>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -24,22 +24,60 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="hero-text">
-        <p class="tag">Visual & Motion Portfolio</p>
-        <h1>光影與色彩的故事場景</h1>
-        <p>精選繪畫、攝影與影像作品。專注氛圍、敘事與質感，以細節構築沉浸感。</p>
-        <div class="list-inline">
-          <a class="btn" href="gallery.html">觀看作品</a>
-          <a class="btn" style="background: transparent; color: var(--color-text); box-shadow: none; border: 1px solid rgba(255,255,255,0.08);" href="about.html">認識我</a>
+    <div class="parallax-shell">
+      <div class="parallax-layer blur" data-speed="0.12" style="background-image: url('assets/images/full/riverlight-full.svg'); background-position: 50% 40%;"></div>
+      <div class="parallax-layer" data-speed="0.2" style="background-image: url('assets/images/full/riverlight-full.svg'); background-position: 50% 50%;"></div>
+      <div class="parallax-veil"></div>
+      <section class="hero fade-in">
+        <div class="hero-text">
+          <p class="tag">Visual & Motion Portfolio</p>
+          <h1>光影與色彩的故事場景</h1>
+          <p>精選繪畫、攝影與影像作品。專注氛圍、敘事與質感，以細節構築沉浸感。</p>
+          <div class="list-inline">
+            <a class="btn" href="gallery.html">觀看作品</a>
+            <a class="btn" style="background: transparent; color: var(--color-text); box-shadow: none; border: 1px solid rgba(255,255,255,0.08);" href="about.html">認識我</a>
+          </div>
         </div>
-      </div>
-      <div>
-        <img src="assets/images/full/riverlight-full.svg" alt="精選作品示意" />
+        <div>
+          <img src="assets/images/full/riverlight-full.svg" alt="精選作品示意" />
+        </div>
+      </section>
+    </div>
+
+    <section class="section transition-block fade-in">
+      <div class="transition-bg"></div>
+      <div class="container">
+        <p class="tag">Transition</p>
+        <h2>滑動時的景深過場</h2>
+        <p>上層內容輕微視差，下層霧化背景做柔焦，讓滾動有延續感與空氣感。</p>
+        <div class="list-inline">
+          <a class="btn" href="gallery.html">進入作品集</a>
+          <a class="btn" style="background: transparent; color: var(--color-text); box-shadow: none; border: 1px solid rgba(255,255,255,0.08);" href="#featured">看精選</a>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section fade-in">
+      <div class="transition-scene">
+        <div class="layer back" data-parallax data-speed="0.05"></div>
+        <div class="layer mid" data-parallax data-speed="0.12"></div>
+        <div class="layer front" data-parallax data-speed="0.2"></div>
+        <div class="orbs">
+          <div class="orb" style="top: 24%; left: 12%;" data-parallax data-speed="0.18"></div>
+          <div class="orb small" style="top: 36%; right: 18%;" data-parallax data-speed="0.25"></div>
+          <div class="orb" style="bottom: 16%; left: 28%;" data-parallax data-speed="0.08"></div>
+        </div>
+        <div class="content">
+          <div>
+            <p class="tag">Cinematic Scroll</p>
+            <h2>連續流動的場景切換</h2>
+            <p>多層漸層面、柔焦光球與視差位移，模擬影片中的推鏡與景深過場。滾動時背景與前景不同速度移動，營造空間感。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in" id="featured">
       <h2>精選作品</h2>
       <p>每個系列聚焦不同的情緒與光線。點擊任一作品可進入內頁。</p>
       <div class="grid grid-3">
@@ -73,7 +111,7 @@
       </div>
     </section>
 
-    <section class="section about-layout">
+    <section class="section about-layout fade-in">
       <div class="card about-card">
         <h2>創作理念</h2>
         <p>透過色彩與構圖捕捉轉瞬的情緒，以實驗性筆觸與光線塑造空氣的厚度。</p>
@@ -100,5 +138,6 @@
       </div>
     </div>
   </footer>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -24,13 +24,33 @@
   </header>
 
   <main class="container">
-    <section class="section">
+    <section class="section fade-in">
       <p class="tag">About</p>
       <h1>關於創作者</h1>
       <p>專注光線、色彩與敘事節奏的視覺創作者，涉略繪畫、攝影與輕量動態影像。作品多以城市空氣、自然濕度與微小情緒為靈感。</p>
     </section>
 
-    <section class="section about-layout">
+    <section class="section fade-in">
+      <div class="transition-scene">
+        <div class="layer back" data-parallax data-speed="0.04"></div>
+        <div class="layer mid" data-parallax data-speed="0.1"></div>
+        <div class="layer front" data-parallax data-speed="0.18"></div>
+        <div class="orbs">
+          <div class="orb" style="top: 20%; left: 18%;" data-parallax data-speed="0.16"></div>
+          <div class="orb small" style="top: 44%; right: 20%;" data-parallax data-speed="0.22"></div>
+          <div class="orb" style="bottom: 18%; left: 32%;" data-parallax data-speed="0.08"></div>
+        </div>
+        <div class="content">
+          <div>
+            <p class="tag">Transition</p>
+            <h2>敘事的節奏切換</h2>
+            <p>用漸層面與光暈模擬過場，搭配視差讓章節切換更流暢。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-layout fade-in">
       <div class="card about-card">
         <h2>背景</h2>
         <p>視覺設計相關背景，曾參與獨立展覽與線上出版，持續探索實驗性筆觸與敘事形式。</p>
@@ -56,5 +76,6 @@
       </div>
     </div>
   </footer>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

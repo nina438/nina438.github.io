@@ -97,6 +97,35 @@ main {
   padding: 40px 0 80px;
 }
 
+.parallax-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0.9;
+}
+
+.parallax-layer.blur {
+  filter: blur(10px);
+  opacity: 0.7;
+}
+
+.parallax-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(14, 15, 22, 0.6), rgba(14, 15, 22, 0.2));
+  pointer-events: none;
+}
+
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -107,6 +136,8 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   box-shadow: var(--shadow-soft);
+  position: relative;
+  isolation: isolate;
 }
 
 .hero-text h1 {
@@ -142,6 +173,130 @@ main {
 
 .section {
   margin-top: 64px;
+}
+
+.section.transition-block {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 80px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: linear-gradient(135deg, rgba(98, 214, 255, 0.08), rgba(14, 15, 22, 0.85));
+}
+
+.transition-block .container {
+  position: relative;
+  z-index: 1;
+}
+
+.transition-bg {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at 30% 40%, rgba(98, 214, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(247, 181, 255, 0.25), transparent 40%);
+  filter: blur(60px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* cinematic transition scene */
+.transition-scene {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  height: min(70vh, 720px);
+  min-height: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: radial-gradient(circle at 20% 20%, rgba(98, 214, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(247, 181, 255, 0.14), transparent 32%),
+    linear-gradient(145deg, #0c0f1a, #121525 50%, #0f111c);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+  isolation: isolate;
+}
+
+.transition-scene .layer {
+  position: absolute;
+  inset: 0;
+  width: 140%;
+  left: -20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+.transition-scene .layer.back {
+  background-image: linear-gradient(160deg, rgba(98, 214, 255, 0.3), rgba(102, 74, 255, 0.18));
+  filter: blur(18px);
+  opacity: 0.6;
+}
+
+.transition-scene .layer.mid {
+  background-image: linear-gradient(120deg, rgba(247, 181, 255, 0.25), rgba(109, 195, 255, 0.35));
+  clip-path: polygon(0 32%, 100% 18%, 100% 70%, 0 86%);
+}
+
+.transition-scene .layer.front {
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(98, 214, 255, 0.4));
+  clip-path: polygon(0 48%, 100% 32%, 100% 100%, 0 100%);
+  opacity: 0.9;
+}
+
+.transition-scene .orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.transition-scene .orb {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  filter: blur(4px);
+  opacity: 0.6;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+.transition-scene .orb.small {
+  width: 100px;
+  height: 100px;
+  opacity: 0.5;
+}
+
+.transition-scene .content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0 24px;
+  z-index: 2;
+}
+
+.transition-scene .content h2 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 5vw, 40px);
+}
+
+.transition-scene .content p {
+  margin: 0;
+  max-width: 640px;
+  color: var(--color-muted);
 }
 
 .section h2 {
