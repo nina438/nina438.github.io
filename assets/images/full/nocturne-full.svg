@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Nocturne full artwork">
+  <defs>
+    <linearGradient id="nbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b15"/>
+      <stop offset="100%" stop-color="#101625"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6f8cff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#6f8cff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#nbg)"/>
+  <rect x="0" y="0" width="1280" height="360" fill="url(#glow)"/>
+  <g fill="#f7f9ff" fill-opacity="0.35">
+    <rect x="200" y="140" width="32" height="220" rx="10"/>
+    <rect x="300" y="110" width="26" height="260" rx="10"/>
+    <rect x="400" y="160" width="24" height="190" rx="10"/>
+    <rect x="520" y="130" width="28" height="230" rx="10"/>
+    <rect x="660" y="150" width="26" height="210" rx="10"/>
+    <rect x="820" y="140" width="30" height="220" rx="10"/>
+  </g>
+  <g stroke="#63d6ff" stroke-width="10" stroke-linecap="round" stroke-opacity="0.78">
+    <path d="M-40 480c200-80 320 30 480 30s320-140 520-40 260 30 420-30"/>
+  </g>
+  <g stroke="#f7b5ff" stroke-width="10" stroke-linecap="round" stroke-opacity="0.65">
+    <path d="M-60 520c220-70 340 60 520 60s320-120 520-40 240 40 420-10"/>
+  </g>
+  <circle cx="1080" cy="120" r="42" fill="#f7f1c7" fill-opacity="0.7"/>
+  <text x="72" y="660" fill="#ffffff" fill-opacity="0.8" font-family="'Manrope', 'Noto Sans TC', sans-serif" font-size="54" font-weight="700">Nocturne City</text>
+</svg>

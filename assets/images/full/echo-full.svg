@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Echo motion still">
+  <defs>
+    <linearGradient id="ebg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#102233"/>
+      <stop offset="50%" stop-color="#16162a"/>
+      <stop offset="100%" stop-color="#211526"/>
+    </linearGradient>
+    <linearGradient id="lines" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4cf8ff"/>
+      <stop offset="50%" stop-color="#7a6bff"/>
+      <stop offset="100%" stop-color="#f5b5ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#ebg)"/>
+  <g stroke="url(#lines)" stroke-width="18" stroke-linecap="round" fill="none" stroke-opacity="0.8">
+    <path d="M-20 360c120-160 260-160 380 0s260 160 380 0 260-160 380 0"/>
+    <path d="M-40 420c140-170 280-170 420 0s280 170 420 0 280-170 420 0" stroke-opacity="0.35"/>
+    <path d="M-60 300c140-170 280-170 420 0s280 170 420 0 280-170 420 0" stroke-opacity="0.45"/>
+  </g>
+  <circle cx="640" cy="360" r="90" fill="#ffffff" fill-opacity="0.06"/>
+  <circle cx="640" cy="360" r="160" fill="#ffffff" fill-opacity="0.04"/>
+  <text x="72" y="650" fill="#ffffff" fill-opacity="0.82" font-family="'Manrope', 'Noto Sans TC', sans-serif" font-size="54" font-weight="700">Echo</text>
+</svg>

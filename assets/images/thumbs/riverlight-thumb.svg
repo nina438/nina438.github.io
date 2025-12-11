@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Riverlight thumbnail">
+  <defs>
+    <linearGradient id="a" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0c1830" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#a)"/>
+  <g fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="4">
+    <path d="M20 300c120-60 220 60 340 0s160-40 260 0"/>
+    <path d="M40 340c90-50 210 50 310 10s160-30 230-10"/>
+    <path d="M0 260c120-70 240 50 340 10s180-40 320 30"/>
+  </g>
+  <circle cx="180" cy="140" r="70" fill="#d7f1ff" fill-opacity="0.2"/>
+  <circle cx="180" cy="140" r="38" fill="#ffffff" fill-opacity="0.35"/>
+  <text x="40" y="440" fill="#ffffff" fill-opacity="0.65" font-family="'Manrope', 'Noto Sans TC', sans-serif" font-size="42" font-weight="700">Riverlight</text>
+</svg>

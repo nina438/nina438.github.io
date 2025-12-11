@@ -1,0 +1,50 @@
+[
+  {
+    "id": "riverlight",
+    "title": "Riverlight",
+    "type": "Painting",
+    "year": "2024",
+    "tags": ["watercolor", "dawn"],
+    "thumbnail": "assets/images/thumbs/riverlight-thumb.svg",
+    "media": [
+      {
+        "src": "assets/images/full/riverlight-full.svg",
+        "caption": "水面上的柔光與霧氣"
+      }
+    ],
+    "description": "清晨霧氣讓光線柔化，透過疊色呈現靜止的時間感。",
+    "date": "2024-10"
+  },
+  {
+    "id": "nocturne",
+    "title": "Nocturne City",
+    "type": "Photo",
+    "year": "2023",
+    "tags": ["night", "long-exposure"],
+    "thumbnail": "assets/images/thumbs/nocturne-thumb.svg",
+    "media": [
+      {
+        "src": "assets/images/full/nocturne-full.svg",
+        "caption": "夜色街景，霧與光跡疊加"
+      }
+    ],
+    "description": "長曝與霧氣中的夜景光跡，展現城市律動。",
+    "date": "2023-07"
+  },
+  {
+    "id": "echo",
+    "title": "Echo",
+    "type": "Motion",
+    "year": "2024",
+    "tags": ["abstract", "motion"],
+    "thumbnail": "assets/images/thumbs/echo-thumb.svg",
+    "media": [
+      {
+        "src": "assets/images/full/echo-full.svg",
+        "caption": "聲音節奏的色彩脈動"
+      }
+    ],
+    "description": "抽象線條與漸層模糊，表現風聲與水聲的節奏。",
+    "date": "2024-03"
+  }
+]

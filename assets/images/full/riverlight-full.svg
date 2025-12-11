@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Riverlight full artwork">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9dd9ff" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#5b7fb1" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0d1624" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#dff3ff" stop-opacity="0.36"/>
+      <stop offset="70%" stop-color="#e9f7ff" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect y="260" width="1280" height="220" fill="url(#mist)"/>
+  <g fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="4">
+    <path d="M-20 410c180-80 320 40 480 10s240-100 480-30 220 30 420-40"/>
+    <path d="M-30 460c200-60 340 60 520 20s220-70 430-20 210 40 380-10"/>
+    <path d="M-40 510c220-70 380 70 560 30s240-90 460-30 200 70 360 0"/>
+  </g>
+  <circle cx="260" cy="180" r="120" fill="#e8f7ff" fill-opacity="0.34"/>
+  <circle cx="260" cy="180" r="64" fill="#ffffff" fill-opacity="0.42"/>
+  <g stroke="#fff" stroke-width="6" stroke-opacity="0.12" fill="none">
+    <path d="M160 220c80-40 160-80 260-60"/>
+    <path d="M200 250c120-40 200-50 300-30"/>
+  </g>
+  <text x="72" y="640" fill="#ffffff" fill-opacity="0.8" font-family="'Manrope', 'Noto Sans TC', sans-serif" font-size="54" font-weight="700">Riverlight</text>
+</svg>

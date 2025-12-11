@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Echo thumbnail">
+  <defs>
+    <linearGradient id="e1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4cf8ff" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#7a6bff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#f5b5ff" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="#0f0f1a"/>
+  <g stroke="url(#e1)" stroke-width="10" stroke-linecap="round" fill="none" stroke-opacity="0.8">
+    <path d="M40 240c80-80 180-80 260 0s180 80 260 0"/>
+    <path d="M40 280c80-80 180-80 260 0s180 80 260 0" stroke-opacity="0.5"/>
+    <path d="M40 200c80-80 180-80 260 0s180 80 260 0" stroke-opacity="0.5"/>
+  </g>
+  <circle cx="320" cy="240" r="42" fill="#ffffff" fill-opacity="0.12"/>
+  <text x="36" y="440" fill="#ffffff" fill-opacity="0.75" font-family="'Manrope', 'Noto Sans TC', sans-serif" font-size="42" font-weight="700">Echo</text>
+</svg>
