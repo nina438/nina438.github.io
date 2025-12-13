@@ -6,28 +6,49 @@
   <title>Riverlight | Nina Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&family=Work+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <header>
     <div class="container navbar">
-      <a class="brand" href="/">NINA STUDIO</a>
-      <nav aria-label="主導覽">
+      <div class="nav-spacer">
+        <button class="menu-toggle" type="button" aria-label="展開選單" data-menu-toggle><span aria-hidden="true"></span></button>
+        <a class="brand" href="/"><span data-site="brand">NINA STUDIO</span></a>
+      </div>
+      <nav class="nav-inline" aria-label="主導覽" data-site="nav">
         <ul>
-          <li><a href="gallery.html">作品集</a></li>
-          <li><a href="about.html">關於</a></li>
-          <li><a href="contact.html">聯絡</a></li>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="about.html">關於我</a></li>
+          <li><a href="index.html#intro">簡介</a></li>
+          <li><a href="contact.html">聯絡我們</a></li>
+          <li><a href="index.html#courses">課程介紹</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <aside class="drawer" data-drawer>
+    <header>
+      <a class="brand" href="/"><span data-site="brand">NINA STUDIO</span></a>
+    </header>
+    <nav aria-label="側邊導覽" data-site="nav">
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="about.html">關於我</a></li>
+        <li><a href="index.html#intro">簡介</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+        <li><a href="index.html#courses">課程介紹</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="drawer-overlay" data-drawer-overlay></div>
+
   <main class="container">
     <section class="detail-hero fade-in">
-      <p class="tag">Painting / 2024</p>
-      <h1>Riverlight</h1>
-      <p>清晨的河面與霧，光線被柔化後在水波上留下細微脈動。以疊色與濕畫法表現空氣感與時間流動。</p>
+      <p class="tag" data-site="work.riverlight.tag">Painting / 2024</p>
+      <h1 data-site="work.riverlight.title">Riverlight</h1>
+      <p data-site="work.riverlight.desc">清晨的河面與霧，光線被柔化後在水波上留下細微脈動。以疊色與濕畫法表現空氣感與時間流動。</p>
     </section>
 
     <section class="section fade-in">
@@ -53,9 +74,9 @@
     <section class="detail-body fade-in">
       <div class="detail-media">
         <img src="assets/images/full/riverlight-full.svg" alt="Riverlight" />
-        <p class="note">尺寸：54 x 34 cm ・ 水彩 + 數位後製</p>
+        <p class="note" data-site="work.riverlight.note">尺寸：54 x 34 cm ・ 水彩 + 數位後製</p>
       </div>
-      <div class="card">
+      <div class="card" data-site="work.riverlight.info">
         <h3>作品資訊</h3>
         <div class="meta"><span class="tag">Series</span> Dawn Waters</div>
         <div class="meta"><span class="tag">色調</span> 冷暖交錯、半透明疊色</div>
@@ -68,7 +89,7 @@
 
   <footer>
     <div class="container footer-content">
-      <span>© 2024 Nina Studio</span>
+      <span data-site="footer">© 2024 Nina Studio</span>
       <div class="list-inline">
         <a href="mailto:hello@example.com">Email</a>
         <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>

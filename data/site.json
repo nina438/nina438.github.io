@@ -1,0 +1,88 @@
+{
+  "brand": "NINA STUDIO",
+  "nav": [
+    { "text": "首頁", "href": "index.html" },
+    { "text": "關於我", "href": "about.html" },
+    { "text": "簡介", "href": "index.html#intro" },
+    { "text": "聯絡我們", "href": "contact.html" },
+    { "text": "課程介紹", "href": "index.html#courses" }
+  ],
+  "hero": {
+    "tag": "Exhibition Note",
+    "title": "光影在白牆上的留白",
+    "desc": "把走過的晨光、午後微風與街角聲響，化作一段段句子放進畫布與鏡頭裡。"
+  },
+  "cta": {
+    "primary": "進入畫室",
+    "secondary": "閱覽序章"
+  },
+  "transition": {
+    "tag": "Daily Scene",
+    "title": "緩緩行走的視覺日常",
+    "desc": "像散步一樣的節奏，讓作品與段落透過留白相互呼吸。"
+  },
+  "cinematic": {
+    "tag": "Mood Scroll",
+    "title": "文句般的光線與動態",
+    "desc": "不刻意的節拍、輕柔的視差，帶出一個個低飽和的場景。"
+  },
+  "featured": {
+    "title": "作品選輯",
+    "desc": "以細線、光點與霧氣寫成的幾篇章節，點進去即可細看紋理。"
+  },
+  "about": {
+    "title": "關於創作者",
+    "desc": "專注光線、色彩與敘事節奏的視覺創作者，涉略繪畫、攝影與輕量動態影像。作品多以城市空氣、自然濕度與微小情緒為靈感。",
+    "blocks": [
+      {
+        "title": "背景",
+        "text": "視覺設計相關背景，曾參與獨立展覽與線上出版，持續探索實驗性筆觸與敘事形式。"
+      },
+      {
+        "title": "創作語言",
+        "text": "喜歡用局部高光與反覆堆疊的質地，營造具有呼吸感的畫面。攝影偏好低色溫夜景與慢快門動態。"
+      },
+      {
+        "title": "合作方向",
+        "text": "展覽視覺、專輯封面、藝文宣傳、品牌影像、攝影委託。歡迎長期合作或專案討論。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "合作與委託",
+    "desc": "若有展覽、視覺設計、攝影或影像專案需求，歡迎來信或私訊社群。",
+    "blocks": [
+      {
+        "title": "聯絡方式",
+        "items": [
+          { "label": "Email", "href": "mailto:st780426@gmail.com", "text": "st780426@gmail.com" },
+          { "label": "Instagram", "href": "https://www.instagram.com", "text": "@instagram" },
+          { "label": "Behance", "href": "https://www.behance.net", "text": "作品集" }
+        ]
+      },
+      {
+        "title": "專案資訊",
+        "text": "請提供專案時間、範圍、預算與參考風格，方便評估並回覆檔期。"
+      }
+    ]
+  },
+  "galleryIntro": {
+    "title": "作品集",
+    "desc": "依媒材與系列整理的視覺作品。可依年份與類型快速瀏覽。"
+  },
+  "work": {
+    "riverlight": {
+      "title": "Riverlight",
+      "tag": "Painting / 2024",
+      "desc": "清晨的河面與霧，光線被柔化後在水波上留下細微脈動。以疊色與濕畫法表現空氣感與時間流動。",
+      "info": [
+        { "label": "Series", "value": "Dawn Waters" },
+        { "label": "色調", "value": "冷暖交錯、半透明疊色" },
+        { "label": "重點", "value": "霧氣、漸層、低飽和筆觸" },
+        { "label": "年份", "value": "2024" }
+      ],
+      "note": "尺寸：54 x 34 cm ・ 水彩 + 數位後製"
+    }
+  },
+  "footer": { "year": "2024", "name": "Nina Studio" }
+}
