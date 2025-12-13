@@ -6,28 +6,49 @@
   <title>關於 | Nina Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&family=Work+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <header>
     <div class="container navbar">
-      <a class="brand" href="/">NINA STUDIO</a>
-      <nav aria-label="主導覽">
+      <div class="nav-spacer">
+        <button class="menu-toggle" type="button" aria-label="展開選單" data-menu-toggle><span aria-hidden="true"></span></button>
+        <a class="brand" href="/"><span data-site="brand">NINA STUDIO</span></a>
+      </div>
+      <nav class="nav-inline" aria-label="主導覽" data-site="nav">
         <ul>
-          <li><a href="gallery.html">作品集</a></li>
-          <li><a href="about.html">關於</a></li>
-          <li><a href="contact.html">聯絡</a></li>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="about.html">關於我</a></li>
+          <li><a href="index.html#intro">簡介</a></li>
+          <li><a href="contact.html">聯絡我們</a></li>
+          <li><a href="index.html#courses">課程介紹</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <aside class="drawer" data-drawer>
+    <header>
+      <a class="brand" href="/"><span data-site="brand">NINA STUDIO</span></a>
+    </header>
+    <nav aria-label="側邊導覽" data-site="nav">
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="about.html">關於我</a></li>
+        <li><a href="index.html#intro">簡介</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+        <li><a href="index.html#courses">課程介紹</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="drawer-overlay" data-drawer-overlay></div>
+
   <main class="container">
     <section class="section fade-in">
       <p class="tag">About</p>
-      <h1>關於創作者</h1>
-      <p>專注光線、色彩與敘事節奏的視覺創作者，涉略繪畫、攝影與輕量動態影像。作品多以城市空氣、自然濕度與微小情緒為靈感。</p>
+      <h1 data-site="about.title">關於創作者</h1>
+      <p data-site="about.desc">專注光線、色彩與敘事節奏的視覺創作者，涉略繪畫、攝影與輕量動態影像。作品多以城市空氣、自然濕度與微小情緒為靈感。</p>
     </section>
 
     <section class="section fade-in">
@@ -50,7 +71,7 @@
       </div>
     </section>
 
-    <section class="section about-layout fade-in">
+    <section class="section about-layout fade-in" data-site="about.blocks">
       <div class="card about-card">
         <h2>背景</h2>
         <p>視覺設計相關背景，曾參與獨立展覽與線上出版，持續探索實驗性筆觸與敘事形式。</p>
@@ -68,7 +89,7 @@
 
   <footer>
     <div class="container footer-content">
-      <span>© 2024 Nina Studio</span>
+      <span data-site="footer">© 2024 Nina Studio</span>
       <div class="list-inline">
         <a href="mailto:hello@example.com">Email</a>
         <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>

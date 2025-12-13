@@ -6,28 +6,49 @@
   <title>作品集 | Nina Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&family=Work+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <header>
     <div class="container navbar">
-      <a class="brand" href="/">NINA STUDIO</a>
-      <nav aria-label="主導覽">
+      <div class="nav-spacer">
+        <button class="menu-toggle" type="button" aria-label="展開選單" data-menu-toggle><span aria-hidden="true"></span></button>
+        <a class="brand" href="/"><span data-site="brand">NINA STUDIO</span></a>
+      </div>
+      <nav class="nav-inline" aria-label="主導覽" data-site="nav">
         <ul>
-          <li><a href="gallery.html">作品集</a></li>
-          <li><a href="about.html">關於</a></li>
-          <li><a href="contact.html">聯絡</a></li>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="about.html">關於我</a></li>
+          <li><a href="index.html#intro">簡介</a></li>
+          <li><a href="contact.html">聯絡我們</a></li>
+          <li><a href="index.html#courses">課程介紹</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <aside class="drawer" data-drawer>
+    <header>
+      <a class="brand" href="/"><span data-site="brand">NINA STUDIO</span></a>
+    </header>
+    <nav aria-label="側邊導覽" data-site="nav">
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="about.html">關於我</a></li>
+        <li><a href="index.html#intro">簡介</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+        <li><a href="index.html#courses">課程介紹</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="drawer-overlay" data-drawer-overlay></div>
+
   <main class="container">
     <section class="section fade-in">
       <p class="tag">Gallery</p>
-      <h1>作品集</h1>
-      <p>依媒材與系列整理的視覺作品。可依年份與類型快速瀏覽。</p>
+      <h1 data-site="gallery.title">作品集</h1>
+      <p data-site="gallery.desc">依媒材與系列整理的視覺作品。可依年份與類型快速瀏覽。</p>
     </section>
 
     <section class="section fade-in">
@@ -107,7 +128,7 @@
 
   <footer>
     <div class="container footer-content">
-      <span>© 2024 Nina Studio</span>
+      <span data-site="footer">© 2024 Nina Studio</span>
       <div class="list-inline">
         <a href="mailto:hello@example.com">Email</a>
         <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
