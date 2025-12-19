@@ -57,39 +57,38 @@ body::before,
 body::after {
   content: "";
   position: fixed;
-  width: 800px;
-  height: 800px;
-  background-image: url('../images/bg_mandala_v2.png');
+  width: 600px;
+  height: 600px;
+  background-image: url('../images/mandala_zen.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.12;
-  /* 增加透明度 */
+  opacity: 0.08;
   pointer-events: none;
-  z-index: 0;
-  /* 提升至 0，確保在 body 背景之上 */
-  filter: grayscale(100%) brightness(1.1);
-  mix-blend-mode: multiply;
+  z-index: 1;
+  mix-blend-mode: normal;
+  filter: none;
 }
 
-/* 確保主要內容在高處 */
+/* 確保內容在浮水印之上 */
 .main-header,
 .banner-rail,
 .container,
-.drawer-menu {
+.drawer-menu,
+.parallax-shell {
   position: relative;
   z-index: 10;
 }
 
 body::before {
-  top: -100px;
+  top: -300px;
   right: -300px;
-  transform: rotate(15deg);
+  transform: rotate(0deg);
 }
 
 body::after {
-  bottom: -200px;
-  left: -350px;
-  transform: rotate(-15deg);
+  bottom: -300px;
+  left: -300px;
+  transform: rotate(0deg);
 }
 
 /* Loader Styles */
