@@ -75,13 +75,18 @@ header {
   color: #1f2328;
   display: flex;
   align-items: center;
-  gap: 12px;
+  /* 垂直置中對齊 */
+  gap: -8px;
+  /* 進一步縮小間距，補償圖檔邊緣空白 */
 }
 
 .logo-icon {
-  height: 48px;
+  height: 120px;
   width: auto;
   border-radius: 0;
+  mix-blend-mode: multiply;
+  margin-top: 15px;
+  /* 往下位移以對齊文字 */
 }
 
 .nav-inline ul {
