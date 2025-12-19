@@ -1,88 +1,100 @@
 {
   "brand": "NINA STUDIO",
   "nav": [
-    { "text": "首頁", "href": "index.html" },
-    { "text": "關於我", "href": "about.html" },
-    { "text": "簡介", "href": "index.html#intro" },
-    { "text": "聯絡我們", "href": "contact.html" },
-    { "text": "課程介紹", "href": "index.html#courses" }
+    {
+      "text": "首頁",
+      "href": "index.html"
+    },
+    {
+      "text": "作品集",
+      "href": "gallery.html"
+    },
+    {
+      "text": "關於藝術家",
+      "href": "about.html"
+    },
+    {
+      "text": "聯絡我們",
+      "href": "contact.html"
+    }
   ],
   "hero": {
-    "tag": "Exhibition Note",
-    "title": "光影在白牆上的留白",
-    "desc": "把走過的晨光、午後微風與街角聲響，化作一段段句子放進畫布與鏡頭裡。"
+    "tag": "Zentangle & Mindfulness Art",
+    "title": "在繁複的線條中，找回純粹的平靜",
+    "desc": "Nina Studio 致力於纏繞畫藝術創作與教學。每一筆、每一劃，都是一段冥想的過程，帶你進入和諧且有機的視覺森林。"
   },
   "cta": {
-    "primary": "進入畫室",
-    "secondary": "閱覽序章"
+    "primary": "探索畫廊",
+    "secondary": "課程預約"
   },
   "transition": {
-    "tag": "Daily Scene",
-    "title": "緩緩行走的視覺日常",
-    "desc": "像散步一樣的節奏，讓作品與段落透過留白相互呼吸。"
+    "tag": "Daily Meditation",
+    "title": "筆尖下的日常修行",
+    "desc": "纏繞畫不需要複雜的理論，只需要一顆安靜的心。我們在黑白交錯中，練習專注與放下。"
   },
   "cinematic": {
-    "tag": "Mood Scroll",
-    "title": "文句般的光線與動態",
-    "desc": "不刻意的節拍、輕柔的視差，帶出一個個低飽和的場景。"
+    "tag": "Artistic Vision",
+    "title": "光影與圖騰的對話",
+    "desc": "透過幾何規律與自由曲線的結合，我們將內心的雜訊轉化為重複且美麗的意象。"
   },
   "featured": {
-    "title": "作品選輯",
-    "desc": "以細線、光點與霧氣寫成的幾篇章節，點進去即可細看紋理。"
+    "title": "精選作品",
+    "desc": "捕捉每一刻靈光現發的瞬間，將思緒化為具象的線條與層次。"
   },
   "about": {
-    "title": "關於創作者",
-    "desc": "專注光線、色彩與敘事節奏的視覺創作者，涉略繪畫、攝影與輕量動態影像。作品多以城市空氣、自然濕度與微小情緒為靈感。",
+    "title": "關於創作者 Nina",
+    "desc": "專注於 Zentangle (纏繞畫) 認證與推廣，擅長將微小的自然元素融入幾何圖騰。透過創作與教學，引導更多人發現「專注之後的平靜」。",
     "blocks": [
       {
-        "title": "背景",
-        "text": "視覺設計相關背景，曾參與獨立展覽與線上出版，持續探索實驗性筆觸與敘事形式。"
+        "title": "資歷與背景",
+        "text": "認證纏繞畫教師 (CZT)，長期深耕視覺設計與心靈藝術領域。"
       },
       {
-        "title": "創作語言",
-        "text": "喜歡用局部高光與反覆堆疊的質地，營造具有呼吸感的畫面。攝影偏好低色溫夜景與慢快門動態。"
+        "title": "藝術風格",
+        "text": "偏好高對比的墨水線條，結合細微的漸層陰影，營造出立體且深邃的空間感。"
       },
       {
-        "title": "合作方向",
-        "text": "展覽視覺、專輯封面、藝文宣傳、品牌影像、攝影委託。歡迎長期合作或專案討論。"
+        "title": "推廣理念",
+        "text": "相信藝術是每個人都能觸及的療癒力量，不設限、不修飾，展現靈魂最真實的樣子。"
       }
     ]
   },
   "contact": {
-    "title": "合作與委託",
-    "desc": "若有展覽、視覺設計、攝影或影像專案需求，歡迎來信或私訊社群。",
+    "title": "預約教學與合作",
+    "desc": "無論是企業工作坊、私人教學或藝術委託，都歡迎與我取得聯繫。",
     "blocks": [
       {
-        "title": "聯絡方式",
+        "title": "聯繫頻道",
         "items": [
-          { "label": "Email", "href": "mailto:st780426@gmail.com", "text": "st780426@gmail.com" },
-          { "label": "Instagram", "href": "https://www.instagram.com", "text": "@instagram" },
-          { "label": "Behance", "href": "https://www.behance.net", "text": "作品集" }
+          {
+            "label": "Email",
+            "href": "mailto:st780426@gmail.com",
+            "text": "nina.art@studio.com"
+          },
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/nina438",
+            "text": "@nina_zentangle"
+          },
+          {
+            "label": "LINE",
+            "href": "#",
+            "text": "@ninastudio"
+          }
         ]
       },
       {
-        "title": "專案資訊",
-        "text": "請提供專案時間、範圍、預算與參考風格，方便評估並回覆檔期。"
+        "title": "工作室位置",
+        "text": "採取預約制，提供幽靜的環境讓學員能全然投入創作。"
       }
     ]
   },
   "galleryIntro": {
-    "title": "作品集",
-    "desc": "依媒材與系列整理的視覺作品。可依年份與類型快速瀏覽。"
+    "title": "創作畫集",
+    "desc": "從早期草稿到近期的大型創作，記錄著線條不斷演進的過程。"
   },
-  "work": {
-    "riverlight": {
-      "title": "Riverlight",
-      "tag": "Painting / 2024",
-      "desc": "清晨的河面與霧，光線被柔化後在水波上留下細微脈動。以疊色與濕畫法表現空氣感與時間流動。",
-      "info": [
-        { "label": "Series", "value": "Dawn Waters" },
-        { "label": "色調", "value": "冷暖交錯、半透明疊色" },
-        { "label": "重點", "value": "霧氣、漸層、低飽和筆觸" },
-        { "label": "年份", "value": "2024" }
-      ],
-      "note": "尺寸：54 x 34 cm ・ 水彩 + 數位後製"
-    }
-  },
-  "footer": { "year": "2024", "name": "Nina Studio" }
+  "footer": {
+    "year": "2024",
+    "name": "Nina Art Studio"
+  }
 }

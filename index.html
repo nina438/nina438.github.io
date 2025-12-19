@@ -11,13 +11,23 @@
     href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&family=Work+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="template.css">
+  <!-- 使用 Lucide Icons 替代 FontAwesome -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="is-loading">
+  <!-- Preloader -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-circle"></div>
+      <span class="loader-text">NINA STUDIO</span>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" class="custom-cursor"></div>
+  <div id="cursor-blur" class="custom-cursor-blur"></div>
+
   <header>
     <div class="container navbar">
       <div class="nav-spacer">
@@ -58,24 +68,24 @@
   <div class="banner-rail">
     <div class="track">
       <div class="banner-card">
-        <img src="assets/images/full/riverlight-full.svg" alt="Riverlight" />
-        <span class="label">光影軌跡</span>
+        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1200" alt="Minimalist Art" />
+        <span class="label">線條意境</span>
       </div>
       <div class="banner-card">
-        <img src="assets/images/full/echo-full.svg" alt="Echo" />
-        <span class="label">聲音的線條</span>
+        <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=1200" alt="Ink Flow" />
+        <span class="label">墨色流動</span>
       </div>
       <div class="banner-card">
-        <img src="assets/images/full/nocturne-full.svg" alt="Nocturne" />
-        <span class="label">夜景呼吸</span>
+        <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=1200" alt="Zen Mandala" />
+        <span class="label">禪心曼陀羅</span>
       </div>
       <div class="banner-card">
-        <img src="assets/images/full/riverlight-full.svg" alt="Walking" />
-        <span class="label">行走片段</span>
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200" alt="Digital Abstract" />
+        <span class="label">幾何構想</span>
       </div>
       <div class="banner-card">
-        <img src="assets/images/full/echo-full.svg" alt="Echo" />
-        <span class="label">流動記憶</span>
+        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200" alt="Artistic Texture" />
+        <span class="label">質地筆觸</span>
       </div>
     </div>
   </div>
@@ -89,16 +99,18 @@
       <div class="parallax-veil"></div>
       <section class="hero fade-in">
         <div class="hero-text">
-          <p class="tag" data-site="hero.tag">Visual & Motion Portfolio</p>
-          <h1 data-site="hero.title">光影與色彩的故事場景</h1>
-          <p data-site="hero.desc">精選繪畫、攝影與影像作品。專注氛圍、敘事與質感，以細節構築沉浸感。</p>
+          <p class="tag" data-site="hero.tag">Art & Mindfulness Studio</p>
+          <h1 data-site="hero.title">在複雜的線條中<br>尋找純粹的平靜</h1>
+          <p data-site="hero.desc">Nina Studio 專注於 Zentangle 纏繞畫教學與視覺創作。我們透過規律的筆觸引導心靈，在黑白與幾何之間，構築一段與自己對話的時光。</p>
           <div class="list-inline">
-            <a class="btn primary" href="gallery.html" data-site="cta.primary">觀看作品</a>
-            <a class="btn" href="about.html" data-site="cta.secondary">認識我</a>
+            <a class="btn primary" href="gallery.html" data-site="cta.primary">觀看作品集 <i
+                data-lucide="arrow-right"></i></a>
+            <a class="btn" href="about.html" data-site="cta.secondary">探索課程 <i data-lucide="book-open"></i></a>
           </div>
         </div>
-        <div>
-          <img src="assets/images/full/riverlight-full.svg" alt="精選作品示意" />
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200"
+            alt="Art Studio Workspace" />
         </div>
       </section>
     </div>
@@ -145,31 +157,31 @@
       <p data-site="featured.desc">每個系列聚焦不同的情緒與光線。點擊任一作品可進入內頁。</p>
       <div class="grid grid-3">
         <a class="card gallery-card" href="work-riverlight.html">
-          <img src="assets/images/thumbs/riverlight-thumb.svg" alt="Riverlight" />
+          <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=800" alt="Inspiration" />
           <div class="meta">
-            <span class="tag">Painting</span>
+            <span class="tag">Ink Art</span>
             <span>2024</span>
           </div>
-          <div class="title">Riverlight</div>
-          <p class="desc">水面的柔光與霧氣，把時間凝住的清晨。</p>
+          <div class="title">流動的呼吸</div>
+          <p class="desc">以黑色墨水模擬雲霧與水滴的交匯，探索虛實邊界。</p>
         </a>
         <a class="card gallery-card" href="gallery.html#nocturne">
-          <img src="assets/images/thumbs/nocturne-thumb.svg" alt="Nocturne" />
+          <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=800" alt="Minimal Lamp" />
           <div class="meta">
-            <span class="tag">Photo</span>
-            <span>2023</span>
-          </div>
-          <div class="title">Nocturne City</div>
-          <p class="desc">夜色街景的冷暖交錯，光跡刻出城市節奏。</p>
-        </a>
-        <a class="card gallery-card" href="gallery.html#echo">
-          <img src="assets/images/thumbs/echo-thumb.svg" alt="Echo" />
-          <div class="meta">
-            <span class="tag">Motion</span>
+            <span class="tag">Mandala</span>
             <span>2024</span>
           </div>
-          <div class="title">Echo</div>
-          <p class="desc">以流動的線條記錄風聲與水聲的脈動。</p>
+          <div class="title">幾何秩序</div>
+          <p class="desc">圓形的重複與對稱，在極致的規律中釋放壓力。</p>
+        </a>
+        <a class="card gallery-card" href="gallery.html#echo">
+          <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=800" alt="Abstract Lines" />
+          <div class="meta">
+            <span class="tag">Abstract</span>
+            <span>2024</span>
+          </div>
+          <div class="title">回聲系列</div>
+          <p class="desc">捕捉聲音的圖像，將看不見的振動化為纏繞的線索。</p>
         </a>
       </div>
     </section>
@@ -227,7 +239,16 @@
       </div>
     </div>
   </footer>
+  <!-- 引入 GSAP & Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
   <script src="assets/js/main.js"></script>
+  <script>
+    // 初始化 Lucide 圖標
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>
