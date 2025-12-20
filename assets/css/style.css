@@ -189,7 +189,6 @@ header {
   background: rgba(251, 250, 247, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid transparent;
-  /* Removed border */
   padding: 24px 0;
   transition: padding 0.3s;
 }
@@ -203,6 +202,16 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  /* Ensure flex container takes full width of container */
+}
+
+/* Override container for header to be wider if needed, or rely on global container */
+/* User requested "align to left and right sides", implying a wide spread. */
+header .container {
+  max-width: 100%;
+  padding: 0 40px;
+  /* Wider spread like reference */
 }
 
 .brand {
@@ -217,13 +226,10 @@ header.scrolled {
   gap: 12px;
 }
 
-/* Hide logo icon in main header for minimal look, emphasize text like reference? */
-/* Or keep it but make it small */
 .logo-icon {
-  height: 48px;
+  height: 60px;
   width: auto;
   mix-blend-mode: multiply;
-  margin-top: 0;
 }
 
 /* Nav Link Styling */
@@ -241,6 +247,8 @@ header.scrolled {
   letter-spacing: 0.1em;
   position: relative;
   padding-bottom: 4px;
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 .nav-inline a::after {
@@ -258,16 +266,23 @@ header.scrolled {
   width: 100%;
 }
 
+.nav-spacer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  /* Space between hamburger and logo */
+}
+
 .menu-toggle {
-  display: none;
-  /* Only show on mobile */
-  /* ... styles for mobile toggle ... */
+  display: block;
+  /* Always show menu button */
   border: none;
   background: none;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 24px;
   position: relative;
   cursor: pointer;
+  padding: 0;
 }
 
 .menu-toggle span,
@@ -275,9 +290,9 @@ header.scrolled {
 .menu-toggle::after {
   content: '';
   position: absolute;
-  left: 5px;
-  width: 30px;
-  height: 2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
   background: var(--color-text);
   transition: 0.3s;
 }
@@ -288,32 +303,29 @@ header.scrolled {
 }
 
 .menu-toggle::before {
-  top: 35%;
+  top: 0;
 }
 
 .menu-toggle::after {
-  top: 65%;
+  bottom: 0;
 }
 
 @media (max-width: 1024px) {
   .nav-inline {
     display: none;
   }
-
-  .menu-toggle {
-    display: block;
-  }
 }
 
-/* Drawer & Overlay (Preserved) */
+/* Drawer / Side Menu - Editorial Style */
 .drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
   opacity: 0;
   pointer-events: none;
-  z-index: 18;
-  transition: 0.3s;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
 }
 
 .drawer-overlay.visible {
@@ -326,68 +338,207 @@ header.scrolled {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
-  background: #fff;
-  z-index: 19;
+  width: 380px;
+  /* Reduced width as requested */
+  max-width: 85vw;
+  background: #fbfaf7;
+  z-index: 1001;
   transform: translateX(-100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 40px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 80px 40px;
+  /* Adjusted padding */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.05);
 }
 
 .drawer.open {
   transform: translateX(0);
 }
 
-.drawer .brand {
-  font-size: 18px;
-  margin-bottom: 20px;
+.side-brand-vertical {
+  position: absolute;
+  left: 40px;
+  /* Position it correctly from the left edge */
+  bottom: 80px;
+  /* Position from the bottom to allow space */
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  font-family: var(--font-serif);
+  font-size: 50px;
+  /* Slightly smaller to fit better */
+  color: #e5e2d9;
+  /* Darker/Visible color */
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.15em;
+  z-index: 0;
 }
 
-.drawer ul {
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.drawer-lang {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+}
+
+.drawer-body {
+  padding-left: 80px;
+  /* Adjusted for narrower drawer */
+  position: relative;
+  z-index: 10;
+}
+
+.drawer-body nav ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  margin: 0 0 60px;
 }
 
-.drawer a {
+.drawer-body nav li {
+  margin-bottom: 24px;
+  /* Slightly tighter room */
+}
+
+.drawer-body nav a {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  /* Refined size */
+  text-decoration: none;
+  color: var(--color-text);
+  transition: 0.4s;
 }
 
-/* Banner Rail (Preserved but refined) */
+.drawer-body nav a:hover {
+  opacity: 0.4;
+  letter-spacing: 0.05em;
+}
+
+.drawer-contact {
+  margin-top: auto;
+  padding-top: 40px;
+  border-top: 1px solid var(--color-line);
+}
+
+.contact-item {
+  margin-bottom: 24px;
+}
+
+.contact-item h5 {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.contact-item p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* Hero Section - Split Layout (About Me) */
+.parallax-shell {
+  position: relative;
+}
+
+.hero {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 80px 0;
+  text-align: left;
+}
+
+.hero-text {
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 5vw, 6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 40px;
+  letter-spacing: -0.02em;
+}
+
+.hero-text p {
+  font-size: 18px;
+  max-width: 480px;
+  margin-bottom: 40px;
+  color: var(--color-muted);
+}
+
+.hero-text .list-inline {
+  justify-content: flex-start;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Banner Rail (Restored) */
 .banner-rail {
-  padding: 60px 0;
+  padding: 100px 0;
+  /* Increased top/bottom space */
   overflow: hidden;
   background: var(--color-bg);
+  display: flex;
+  justify-content: center;
 }
 
 .banner-rail .track {
   width: 100%;
+  max-width: none;
+  /* Allow full width extension */
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
+  /* Reduces gap for fuller look */
   height: 400px;
+  padding: 0 120px;
+  /* Increased side padding for better alignment */
 }
 
 .banner-card {
   flex: 1;
   border-radius: 4px;
-  /* Sharper */
   overflow: hidden;
   position: relative;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: grayscale(20%);
+  filter: none;
+  /* Show colors by default */
+  cursor: pointer;
 }
 
 .banner-card:hover {
   flex: 3;
-  filter: grayscale(0%);
 }
 
 .banner-card img {
@@ -412,49 +563,6 @@ header.scrolled {
 .banner-card:hover .label {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* MAIN Content Styles */
-main {
-  padding: 0 0 120px;
-}
-
-/* Hero Section - Redesigned */
-.parallax-shell {
-  position: relative;
-}
-
-.hero {
-  min-height: 90vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  padding: 80px 0;
-}
-
-.hero-text h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(3.5rem, 5vw, 6rem);
-  font-weight: 400;
-  line-height: 1.1;
-  margin: 0 0 40px;
-  letter-spacing: -0.02em;
-}
-
-.hero-text p {
-  font-size: 18px;
-  max-width: 480px;
-  margin-bottom: 40px;
-  color: var(--color-muted);
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border-radius: 4px;
 }
 
 /* Sections */
@@ -898,8 +1006,4 @@ footer {
   background: transparent;
   color: var(--color-text);
   box-shadow: inset 0 0 0 1px var(--color-text);
-}
-
-.btn.primary {
-  /* ... */
 }
