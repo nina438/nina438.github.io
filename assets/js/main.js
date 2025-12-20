@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
   drawerOverlay.addEventListener('click', () => toggleDrawer(false));
 
   // 6. JSON Data Fetching (Legacy Sync)
-  // Synchronizes the site content from data/site.json
   fetch('data/site.json')
     .then(res => res.json())
     .then(site => {
@@ -141,21 +140,36 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.warn('Unable to load site.json', err));
 
   function updateSiteContent(site) {
-    // Sync names and simple fields
-    document.querySelectorAll('[data-site="brand"]').forEach(el => el.textContent = site.brand);
-    document.querySelectorAll('[data-site="footer"]').forEach(el => el.textContent = `© ${site.footer.year} ${site.footer.name}`);
+    // Recursive function to map JSON to [data-site] attributes
+    const mapData = (obj, prefix = '') => {
+      for (const key in obj) {
+        const fullKey = prefix ? `${prefix}.${key}` : key;
+        const val = obj[key];
 
-    const setText = (selector, text) => {
-      const el = document.querySelector(`[data-site="${selector}"]`);
-      if (el && text) el.textContent = text;
+        if (typeof val === 'object' && !Array.isArray(val) && val !== null) {
+          mapData(val, fullKey);
+        } else {
+          // Special cases or direct mapping
+          document.querySelectorAll(`[data-site="${fullKey}"]`).forEach(el => {
+            if (fullKey === 'footer') {
+              // Special footer format logic remains or just simple text
+              el.textContent = `© ${obj.year} ${obj.name}`;
+            } else if (fullKey === 'brand') {
+              el.innerText = val;
+            } else {
+              el.innerText = val;
+            }
+          });
+        }
+      }
     };
 
-    if (site.hero) {
-      setText('hero.tag', site.hero.tag);
-      setText('hero.title', site.hero.title);
-      setText('hero.desc', site.hero.desc);
-    }
+    mapData(site);
 
-    // Add more mapping as needed based on the index.html structure
+    // Explicit mappings for items not strictly following nesting or needing special treatment
+    if (site.brand) {
+      document.querySelectorAll('[data-site="brand"]').forEach(el => el.innerText = site.brand);
+    }
   }
 });
+
