@@ -301,9 +301,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
+  <!-- Editor UI -->
+  <div id="editor-sidebar" class="editor-sidebar">
+    <div class="editor-header">
+      <h3>網頁內容規劃</h3>
+      <button id="save-content" class="btn-save">儲存設定</button>
+    </div>
+    <div class="editor-sections" id="editor-accordion">
+      <!-- 內容由 JS 生成 -->
+    </div>
+  </div>
+
+  <button id="toggle-editor" class="editor-toggle-btn" title="切換編輯面板">
+    <span style="font-size: 24px;">⚙️</span>
+  </button>
+
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/editor.js"></script>
   <script>
-    // 初始化 Lucide 圖標
     lucide.createIcons();
   </script>
 </body>
