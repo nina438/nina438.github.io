@@ -127,7 +127,10 @@
         </div>
       </div>
       <div class="visual">
-        <img src="assets/images/full/nocturne-full.svg" alt="過場示意" />
+        <video autoplay muted loop playsinline poster="assets/images/full/nocturne-full.svg">
+          <source src="https://videos.pexels.com/video-files/856973/856973-hd_1920_1080_25fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </section>
 
@@ -155,72 +158,111 @@
     <section class="section fade-in" id="featured">
       <h2 data-site="featured.title">精選作品</h2>
       <p data-site="featured.desc">每個系列聚焦不同的情緒與光線。點擊任一作品可進入內頁。</p>
-      <div class="grid grid-3">
-        <a class="card gallery-card" href="work-riverlight.html">
-          <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=800" alt="Inspiration" />
-          <div class="meta">
-            <span class="tag">Ink Art</span>
-            <span>2024</span>
+      <div class="editorial-grid">
+        <a class="editorial-card" href="work-riverlight.html">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=800" alt="Inspiration" />
           </div>
-          <div class="title">流動的呼吸</div>
-          <p class="desc">以黑色墨水模擬雲霧與水滴的交匯，探索虛實邊界。</p>
+          <div class="text">
+            <span class="meta">Ink Art — 2024</span>
+            <div class="title">流動的呼吸</div>
+            <p class="desc">以黑色墨水模擬雲霧與水滴的交匯，探索虛實邊界。在極簡的黑白之間，尋找最純粹的情感流動。</p>
+            <span class="btn-link">查看系列 ⟶</span>
+          </div>
         </a>
-        <a class="card gallery-card" href="gallery.html#nocturne">
-          <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=800" alt="Minimal Lamp" />
-          <div class="meta">
-            <span class="tag">Mandala</span>
-            <span>2024</span>
+        <a class="editorial-card" href="gallery.html#nocturne">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=800" alt="Minimal Lamp" />
           </div>
-          <div class="title">幾何秩序</div>
-          <p class="desc">圓形的重複與對稱，在極致的規律中釋放壓力。</p>
+          <div class="text">
+            <span class="meta">Mandala — 2024</span>
+            <div class="title">幾何秩序</div>
+            <p class="desc">圓形的重複與對稱，在極致的規律中釋放壓力。每一個筆觸都是一次呼吸，每一次重複都是一種冥想。</p>
+            <span class="btn-link">查看系列 ⟶</span>
+          </div>
         </a>
-        <a class="card gallery-card" href="gallery.html#echo">
-          <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=800" alt="Abstract Lines" />
-          <div class="meta">
-            <span class="tag">Abstract</span>
-            <span>2024</span>
+        <a class="editorial-card" href="gallery.html#echo">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=800" alt="Abstract Lines" />
           </div>
-          <div class="title">回聲系列</div>
-          <p class="desc">捕捉聲音的圖像，將看不見的振動化為纏繞的線索。</p>
+          <div class="text">
+            <span class="meta">Abstract — 2024</span>
+            <div class="title">回聲系列</div>
+            <p class="desc">捕捉聲音的圖像，將看不見的振動化為纏繞的線索。視覺化的聲波，在平面上創造出立體的共鳴。</p>
+            <span class="btn-link">查看系列 ⟶</span>
+          </div>
+        </a>
+        <a class="editorial-card" href="gallery.html#clay">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800" alt="Clay Texture" />
+          </div>
+          <div class="text">
+            <span class="meta">Texture — 2024</span>
+            <div class="title">大地與呼吸</div>
+            <p class="desc">回歸泥土的觸感，感受手作的不完美溫度。保留指紋與刮痕，讓作品訴說製作過程中的故事。</p>
+            <span class="btn-link">查看系列 ⟶</span>
+          </div>
         </a>
       </div>
     </section>
 
+    <!-- New Video Section -->
+    <section class="section split-feature fade-in" id="video-feature">
+      <div class="split-media">
+        <!-- 這裡使用影片作為示意，若無影片時會顯示封面圖 -->
+        <video autoplay muted loop playsinline
+          poster="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200">
+          <source src="https://videos.pexels.com/video-files/4057322/4057322-uhd_2560_1440_25fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="split-text">
+        <span class="tag">Studio Life</span>
+        <h2 class="title">創作過程</h2>
+        <p class="desc">在光影交錯的午後，紀錄每一次筆觸落下的瞬間。影片呈現的不僅是繪畫的過程，更是心流狀態的具象化。平靜、專注，與當下共存。</p>
+        <a href="about.html" class="btn">了解更多</a>
+      </div>
+    </section>
+
+    <!-- Refactored Courses Section -->
     <section class="section fade-in" id="courses">
-      <h2>課程介紹</h2>
-      <p>把工作室日常拆成短篇章，邀請你一起練習聽光、看風、記下微小的溫度。</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <p class="tag">光影散步</p>
+      <h2 style="text-align: center; margin-bottom: 60px;">課程介紹</h2>
+      <div class="course-grid">
+        <div class="course-card">
+          <div class="course-img">
+            <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=600" alt="Morning Light">
+          </div>
           <h3>晨光速寫</h3>
-          <p>在白牆與窗景之間做暖身，練習用簡單線條記錄光的方向與情緒。</p>
+          <p>在白牆與窗景之間做暖身，練習用簡單線條記錄光的方向與情緒。適合初學者建立觀察習慣。</p>
         </div>
-        <div class="card">
-          <p class="tag">肌理筆記</p>
+        <div class="course-card">
+          <div class="course-img">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600" alt="Mist & Layers">
+          </div>
           <h3>霧氣與質地</h3>
-          <p>用水彩與疊色做霧面堆疊，學會讓留白與筆觸替畫面呼吸。</p>
+          <p>用水彩與疊色做霧面堆疊，學會讓留白與筆觸替畫面呼吸。探索顏料在紙張上的自然擴散。</p>
         </div>
-        <div class="card">
-          <p class="tag">日常紀錄</p>
+        <div class="course-card">
+          <div class="course-img">
+            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=600" alt="Slow Photography">
+          </div>
           <h3>慢速攝影</h3>
-          <p>帶著相機走路，捕捉午後的風聲與街角線條，寫下一小段影像日記。</p>
+          <p>帶著相機走路，捕捉午後的風聲與街角線條，寫下一小段影像日記。學習用鏡頭捕捉時間的流動。</p>
         </div>
       </div>
     </section>
 
-    <section class="section about-layout fade-in">
-      <div class="card about-card">
-        <h2>創作理念</h2>
-        <p>透過色彩與構圖捕捉轉瞬的情緒，以實驗性筆觸與光線塑造空氣的厚度。</p>
+    <!-- Extra Image with Text Section -->
+    <section class="section extra-feature fade-in" id="extra-feature">
+      <div class="feature-text">
+        <span class="tag">Schedule</span>
+        <h2 class="title">近期檔期與展覽</h2>
+        <p class="desc">2024年第四季度，我們將在台北與台中舉辦系列工作坊與小型個展。歡迎預約參觀或報名課程，親身體驗纏繞畫帶來的平靜力量。</p>
+        <p class="desc" style="font-size: 14px; margin-top: -20px; color: var(--color-text);">目前可接受委託創作與商業合作拍攝。</p>
+        <a href="contact.html" class="btn">聯絡我們 ⟶</a>
       </div>
-      <div class="card about-card">
-        <h2>媒材偏好</h2>
-        <p>水彩、數位繪畫、攝影（長曝、夜景）、簡易動態影像。</p>
-      </div>
-      <div class="card about-card">
-        <h2>近期檔期</h2>
-        <p>2024 Q4 可接受委託與合作拍攝；展覽方案歡迎聯繫。</p>
-        <a class="btn" href="contact.html">聯絡</a>
+      <div class="feature-media">
+        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=1200" alt="Exhibition Space">
       </div>
     </section>
   </main>
