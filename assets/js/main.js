@@ -148,14 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (typeof val === 'object' && !Array.isArray(val) && val !== null) {
           mapData(val, fullKey);
-        } else {
-          // Special cases or direct mapping
+        } else if (!Array.isArray(val)) {
+          // Direct mapping only for non-array values
           document.querySelectorAll(`[data-site="${fullKey}"]`).forEach(el => {
             if (fullKey === 'footer') {
-              // Special footer format logic remains or just simple text
               el.textContent = `© ${obj.year} ${obj.name}`;
-            } else if (fullKey === 'brand') {
-              el.innerText = val;
             } else {
               el.innerText = val;
             }

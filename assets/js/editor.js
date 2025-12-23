@@ -9,8 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
     exportBtn.innerText = '產生同步代碼';
     exportBtn.style.cssText = 'margin-left:8px; background-color:#5f7c6b; font-size:12px; padding:6px 10px;';
 
-    // Add export button next to save
-    if (saveBtn) saveBtn.parentNode.appendChild(exportBtn);
+    const resetBtn = document.createElement('button');
+    resetBtn.id = 'reset-content';
+    resetBtn.className = 'btn-save secondary';
+    resetBtn.innerText = '恢復檔案預設';
+    resetBtn.style.cssText = 'margin-left:8px; background-color:#999; font-size:12px; padding:6px 10px;';
+
+    // Add buttons
+    if (saveBtn) {
+        saveBtn.parentNode.appendChild(exportBtn);
+        saveBtn.parentNode.appendChild(resetBtn);
+    }
+
+    resetBtn.addEventListener('click', () => {
+        if (confirm('確定要捨棄暫存修改，恢復成原始檔案內容嗎？')) {
+            localStorage.removeItem(STORAGE_KEY);
+            location.reload();
+        }
+    });
 
     // Safety check for UI elements
     const hasEditorUI = toggleBtn && sidebar && accordion && saveBtn;
