@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('editor-sidebar');
     const accordion = document.getElementById('editor-accordion');
     const saveBtn = document.getElementById('save-content');
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'export-code';
+    exportBtn.className = 'btn-save secondary';
+    exportBtn.innerText = '產生同步代碼';
+    exportBtn.style.cssText = 'margin-left:8px; background-color:#5f7c6b; font-size:12px; padding:6px 10px;';
+
+    // Add export button next to save
+    if (saveBtn) saveBtn.parentNode.appendChild(exportBtn);
 
     // Safety check for UI elements
     const hasEditorUI = toggleBtn && sidebar && accordion && saveBtn;
@@ -176,6 +184,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 saveBtn.innerText = '已儲存！';
                 setTimeout(() => { saveBtn.innerText = '儲存設定'; }, 2000);
             }, 500);
+        });
+
+        // EXPORT FOR AI SYNC
+        exportBtn.addEventListener('click', () => {
+            const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            const formatted = JSON.stringify(data, null, 2);
+
+            // Create a persistent overlay to show code
+            const overlay = document.createElement('div');
+            overlay.style = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; display:flex; align-items:center; justify-content:center; padding:20px;';
+            overlay.innerHTML = `
+                <div style="background:#fff; padding:30px; border-radius:12px; max-width:600px; width:100%; box-shadow:0 20px 40px rgba(0,0,0,0.3);">
+                    <h2 style="margin-top:0; color:#333;">同步至原始碼</h2>
+                    <p style="color:#666; font-size:14px;">請複製下方代碼並貼回給 <b>Antigravity</b>，我將為您更新 site.json 與所有實體檔案。</p>
+                    <textarea readonly style="width:100%; height:300px; padding:15px; font-family:monospace; border:1px solid #ddd; border-radius:6px; margin:15px 0; background:#f9f9f9; font-size:12px;">${formatted}</textarea>
+                    <div style="display:flex; justify-content:flex-end; gap:10px;">
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" style="padding:10px 20px; border:none; background:#eee; cursor:pointer; border-radius:4px;">關閉</button>
+                        <button id="copy-sync-btn" style="padding:10px 20px; border:none; background:#222; color:#fff; cursor:pointer; border-radius:4px;">複製代碼</button>
+                    </div>
+                </div>
+           `;
+            document.body.appendChild(overlay);
+
+            document.getElementById('copy-sync-btn').onclick = () => {
+                navigator.clipboard.writeText(formatted);
+                document.getElementById('copy-sync-btn').innerText = '已複製！';
+            };
         });
 
         initEditor();

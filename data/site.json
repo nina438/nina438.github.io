@@ -20,8 +20,8 @@
   ],
   "hero": {
     "tag": "Zentangle & Mindfulness Art",
-    "title": "關於我",
-    "desc": "Nina Studio 致力於纏繞畫藝術創作與教學。每一筆、每一劃，都是一段冥想的過程，帶你進入和諧且有機的視覺森林。"
+    "title": "關於我10",
+    "desc": "Nina Studio 專注於 Zentangle 纏繞畫教學與視覺創作。我們透過規律的筆觸引導心靈，在黑白與幾何之間，構築一段與自己對話的時光。"
   },
   "cta": {
     "primary": "探索畫廊",
@@ -95,6 +95,6 @@
   },
   "footer": {
     "year": "2024",
-    "name": "Nina Art Studio"
+    "name": "Nina Studio"
   }
 }
