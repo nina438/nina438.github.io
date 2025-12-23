@@ -14,115 +14,119 @@
 </head>
 
 <body>
-  <header>
-    <div class="container navbar">
-      <div class="nav-spacer">
-        <button class="menu-toggle" type="button" aria-label="展開選單" data-menu-toggle><span
-            aria-hidden="true"></span></button>
-        <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span
-            data-site="brand">NINA STUDIO</span></a>
+  <div id="site-wrapper">
+    <header>
+      <div class="container navbar">
+        <div class="nav-spacer">
+          <button class="menu-toggle" type="button" aria-label="展開選單" data-menu-toggle><span
+              aria-hidden="true"></span></button>
+          <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span
+              data-site="brand">NINA STUDIO</span></a>
+        </div>
+        <nav class="nav-inline" aria-label="主導覽" data-site="nav">
+          <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">關於我</a></li>
+            <li><a href="index.html#intro">簡介</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+            <li><a href="index.html#courses">課程介紹</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav class="nav-inline" aria-label="主導覽" data-site="nav">
-        <ul>
-          <li><a href="index.html">首頁</a></li>
-          <li><a href="about.html">關於我</a></li>
-          <li><a href="index.html#intro">簡介</a></li>
-          <li><a href="contact.html">聯絡我們</a></li>
-          <li><a href="index.html#courses">課程介紹</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <aside class="drawer" data-drawer>
-    <div class="side-brand-vertical">NINA Studio</div>
-    <header class="drawer-header">
-      <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span>NINA
-          STUDIO</span></a>
-      <div class="drawer-lang">繁中 | EN</div>
     </header>
 
-    <div class="drawer-body">
-      <nav aria-label="側邊導覽" data-site="nav">
-        <ul>
-          <li><a href="about.html">關於我</a></li>
-          <li><a href="#featured">精選作品</a></li>
-          <li><a href="contact.html">聯絡我們</a></li>
-          <li><a href="#courses">課程介紹</a></li>
-        </ul>
-      </nav>
+    <aside class="drawer" data-drawer>
+      <div class="side-brand-vertical">NINA Studio</div>
+      <header class="drawer-header">
+        <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span>NINA
+            STUDIO</span></a>
+        <div class="drawer-lang">繁中 | EN</div>
+      </header>
 
-      <div class="drawer-contact">
-        <div class="contact-item">
-          <h5>NINA STUDIO 當代藝術工作室</h5>
-          <p>804 高雄市鼓山區某某路111號</p>
-          <p>T : +886-7-123 4567</p>
-        </div>
-        <div class="contact-item">
-          <h5>台北聯絡處</h5>
-          <p>110 台灣台北市信義區某某路100號</p>
-          <p>T : +886-2-1234 5678</p>
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="drawer-overlay" data-drawer-overlay></div>
+      <div class="drawer-body">
+        <nav aria-label="側邊導覽" data-site="nav">
+          <ul>
+            <li><a href="about.html">關於我</a></li>
+            <li><a href="#featured">精選作品</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+            <li><a href="#courses">課程介紹</a></li>
+          </ul>
+        </nav>
 
-  <main class="container">
-    <section class="section fade-in">
-      <p class="tag">Contact</p>
-      <h1 data-site="contact.title">合作與委託</h1>
-      <p data-site="contact.desc">若有展覽、視覺設計、攝影或影像專案需求，歡迎來信或私訊社群。</p>
-    </section>
-
-    <section class="section fade-in">
-      <div class="transition-scene">
-        <div class="layer back" data-parallax data-speed="0.05"></div>
-        <div class="layer mid" data-parallax data-speed="0.12"></div>
-        <div class="layer front" data-parallax data-speed="0.2"></div>
-        <div class="orbs">
-          <div class="orb" style="top: 18%; left: 22%;" data-parallax data-speed="0.18"></div>
-          <div class="orb small" style="top: 38%; right: 18%;" data-parallax data-speed="0.26"></div>
-          <div class="orb" style="bottom: 16%; left: 40%;" data-parallax data-speed="0.1"></div>
-        </div>
-        <div class="content">
-          <div>
-            <p class="tag">Transition</p>
-            <h2>推進到聯絡章節</h2>
-            <p>維持流動的光影感，讓視覺與資訊切換不突兀。</p>
+        <div class="drawer-contact">
+          <div class="contact-item">
+            <h5>NINA STUDIO 當代藝術工作室</h5>
+            <p>804 高雄市鼓山區某某路111號</p>
+            <p>T : +886-7-123 4567</p>
+          </div>
+          <div class="contact-item">
+            <h5>台北聯絡處</h5>
+            <p>110 台灣台北市信義區某某路100號</p>
+            <p>T : +886-2-1234 5678</p>
           </div>
         </div>
       </div>
-    </section>
+    </aside>
+    <div class="drawer-overlay" data-drawer-overlay></div>
 
-    <section class="section about-layout fade-in" data-site="contact.blocks">
-      <div class="card about-card">
-        <h2>聯絡方式</h2>
-        <p data-item>Email：<a href="mailto:hello@example.com">hello@example.com</a></p>
-        <p data-item>Instagram：<a href="https://www.instagram.com" target="_blank" rel="noreferrer">@instagram</a></p>
-        <p data-item>Behance：<a href="https://www.behance.net" target="_blank" rel="noreferrer">作品集</a></p>
-      </div>
-      <div class="card about-card">
-        <h2>專案資訊</h2>
-        <p>請提供專案時間、範圍、預算與參考風格，方便評估並回覆檔期。</p>
-      </div>
-    </section>
-  </main>
+    <main class="container">
+      <section class="section fade-in" data-editor-block="contact.hero">
+        <p class="tag" data-site="contact.tag">Contact</p>
+        <h1 data-site="contact.title">合作與委託</h1>
+        <p data-site="contact.desc">若有展覽、視覺設計、攝影或影像專案需求，歡迎來信或私訊社群。</p>
+      </section>
 
-  <footer>
-    <div class="container footer-content">
-      <span data-site="footer">© 2024 Nina Studio</span>
-      <div class="social-inline">
-        <a class="glassIco" href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><i
-            class="fab fa-facebook-f"></i></a>
-        <a class="glassIco" href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><i
-            class="fab fa-instagram"></i></a>
-        <a class="glassIco" href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><i
-            class="fab fa-youtube"></i></a>
-        <a class="glassIco" href="mailto:st780426@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <section class="section fade-in" data-editor-block="contact.transition">
+        <div class="transition-scene">
+          <div class="layer back" data-parallax data-speed="0.05"></div>
+          <div class="layer mid" data-parallax data-speed="0.12"></div>
+          <div class="layer front" data-parallax data-speed="0.2"></div>
+          <div class="orbs">
+            <div class="orb" style="top: 18%; left: 22%;" data-parallax data-speed="0.18"></div>
+            <div class="orb small" style="top: 38%; right: 18%;" data-parallax data-speed="0.26"></div>
+            <div class="orb" style="bottom: 16%; left: 40%;" data-parallax data-speed="0.1"></div>
+          </div>
+          <div class="content">
+            <div>
+              <p class="tag" data-site="contact.trans_tag">Transition</p>
+              <h2 data-site="contact.trans_title">推進到聯絡章節</h2>
+              <p data-site="contact.trans_desc">維持流動的光影感，讓視覺與資訊切換不突兀。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-layout fade-in" data-editor-block="contact.info">
+        <div class="card about-card">
+          <h2 data-site="contact.method_title">聯絡方式</h2>
+          <p data-item>Email：<a href="mailto:hello@example.com" data-site="contact.email">hello@example.com</a></p>
+          <p data-item>Instagram：<a href="https://www.instagram.com" target="_blank" rel="noreferrer"
+              data-site="contact.ig">@instagram</a></p>
+          <p data-item>Behance：<a href="https://www.behance.net" target="_blank" rel="noreferrer"
+              data-site="contact.behance">作品集</a></p>
+        </div>
+        <div class="card about-card">
+          <h2 data-site="contact.project_title">專案資訊</h2>
+          <p data-site="contact.project_desc">請提供專案時間、範圍、預算與參考風格，方便評估並回覆檔期。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <span data-site="footer">© 2024 Nina Studio</span>
+        <div class="social-inline">
+          <a class="glassIco" href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><i
+              class="fab fa-facebook-f"></i></a>
+          <a class="glassIco" href="https://www.instagram.com" target="_blank" rel="noreferrer"
+            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="glassIco" href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><i
+              class="fab fa-youtube"></i></a>
+          <a class="glassIco" href="mailto:st780426@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <!-- Editor UI -->
   <div id="editor-sidebar" class="editor-sidebar">

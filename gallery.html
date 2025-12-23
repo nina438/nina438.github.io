@@ -14,156 +14,158 @@
 </head>
 
 <body>
-  <header>
-    <div class="container navbar">
-      <div class="nav-spacer">
-        <button class="menu-toggle" type="button" aria-label="展開選單" data-menu-toggle><span
-            aria-hidden="true"></span></button>
-        <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span
-            data-site="brand">NINA STUDIO</span></a>
+  <div id="site-wrapper">
+    <header>
+      <div class="container navbar">
+        <div class="nav-spacer">
+          <button class="menu-toggle" type="button" aria-label="展開選單" data-menu-toggle><span
+              aria-hidden="true"></span></button>
+          <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span
+              data-site="brand">NINA STUDIO</span></a>
+        </div>
+        <nav class="nav-inline" aria-label="主導覽" data-site="nav">
+          <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">關於我</a></li>
+            <li><a href="index.html#intro">簡介</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+            <li><a href="index.html#courses">課程介紹</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav class="nav-inline" aria-label="主導覽" data-site="nav">
-        <ul>
-          <li><a href="index.html">首頁</a></li>
-          <li><a href="about.html">關於我</a></li>
-          <li><a href="index.html#intro">簡介</a></li>
-          <li><a href="contact.html">聯絡我們</a></li>
-          <li><a href="index.html#courses">課程介紹</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <aside class="drawer" data-drawer>
-    <div class="side-brand-vertical">NINA Studio</div>
-    <header class="drawer-header">
-      <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span>NINA
-          STUDIO</span></a>
-      <div class="drawer-lang">繁中 | EN</div>
     </header>
 
-    <div class="drawer-body">
-      <nav aria-label="側邊導覽" data-site="nav">
-        <ul>
-          <li><a href="about.html">關於我</a></li>
-          <li><a href="#featured">精選作品</a></li>
-          <li><a href="contact.html">聯絡我們</a></li>
-          <li><a href="#courses">課程介紹</a></li>
-        </ul>
-      </nav>
+    <aside class="drawer" data-drawer>
+      <div class="side-brand-vertical">NINA Studio</div>
+      <header class="drawer-header">
+        <a class="brand" href="/"><img src="assets/images/logo.png" alt="Logo" class="logo-icon"><span>NINA
+            STUDIO</span></a>
+        <div class="drawer-lang">繁中 | EN</div>
+      </header>
 
-      <div class="drawer-contact">
-        <div class="contact-item">
-          <h5>NINA STUDIO 當代藝術工作室</h5>
-          <p>804 高雄市鼓山區某某路111號</p>
-          <p>T : +886-7-123 4567</p>
-        </div>
-        <div class="contact-item">
-          <h5>台北聯絡處</h5>
-          <p>110 台灣台北市信義區某某路100號</p>
-          <p>T : +886-2-1234 5678</p>
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="drawer-overlay" data-drawer-overlay></div>
+      <div class="drawer-body">
+        <nav aria-label="側邊導覽" data-site="nav">
+          <ul>
+            <li><a href="about.html">關於我</a></li>
+            <li><a href="#featured">精選作品</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+            <li><a href="#courses">課程介紹</a></li>
+          </ul>
+        </nav>
 
-  <main class="container">
-    <section class="section fade-in">
-      <p class="tag" data-site="galleryIntro.tag">Gallery</p>
-      <h1 data-site="galleryIntro.title">作品集</h1>
-      <p data-site="galleryIntro.desc">依媒材與系列整理的視覺作品。可依年份與類型快速瀏覽。</p>
-    </section>
-
-    <section class="section fade-in">
-      <div class="transition-scene">
-        <div class="layer back" data-parallax data-speed="0.04"></div>
-        <div class="layer mid" data-parallax data-speed="0.1"></div>
-        <div class="layer front" data-parallax data-speed="0.18"></div>
-        <div class="orbs">
-          <div class="orb" style="top: 22%; left: 16%;" data-parallax data-speed="0.16"></div>
-          <div class="orb small" style="top: 42%; right: 16%;" data-parallax data-speed="0.24"></div>
-          <div class="orb" style="bottom: 18%; left: 36%;" data-parallax data-speed="0.08"></div>
-        </div>
-        <div class="content">
-          <div>
-            <p class="tag">Transition</p>
-            <h2>滑入作品列表</h2>
-            <p>讓列表前有一段動態過場，模擬影片中轉入新場景的感覺。</p>
+        <div class="drawer-contact">
+          <div class="contact-item">
+            <h5>NINA STUDIO 當代藝術工作室</h5>
+            <p>804 高雄市鼓山區某某路111號</p>
+            <p>T : +886-7-123 4567</p>
+          </div>
+          <div class="contact-item">
+            <h5>台北聯絡處</h5>
+            <p>110 台灣台北市信義區某某路100號</p>
+            <p>T : +886-2-1234 5678</p>
           </div>
         </div>
       </div>
-    </section>
+    </aside>
+    <div class="drawer-overlay" data-drawer-overlay></div>
 
-    <section class="section fade-in" id="riverlight">
-      <div class="grid grid-3 gallery-grid">
-        <a class="card gallery-card" href="work-riverlight.html">
-          <img src="assets/images/thumbs/riverlight-thumb.svg" alt="Riverlight" />
-          <div class="meta">
-            <span class="tag">Painting</span>
-            <span>2024</span>
+    <main class="container">
+      <section class="section fade-in" data-editor-block="gallery.hero">
+        <p class="tag" data-site="gallery.tag">Gallery</p>
+        <h1 data-site="gallery.title">作品集</h1>
+        <p data-site="gallery.desc">依媒材與系列整理的視覺作品。可依年份與類型快速瀏覽。</p>
+      </section>
+
+      <section class="section fade-in" data-editor-block="gallery.transition">
+        <div class="transition-scene">
+          <div class="layer back" data-parallax data-speed="0.04"></div>
+          <div class="layer mid" data-parallax data-speed="0.1"></div>
+          <div class="layer front" data-parallax data-speed="0.18"></div>
+          <div class="orbs">
+            <div class="orb" style="top: 22%; left: 16%;" data-parallax data-speed="0.16"></div>
+            <div class="orb small" style="top: 42%; right: 16%;" data-parallax data-speed="0.24"></div>
+            <div class="orb" style="bottom: 18%; left: 36%;" data-parallax data-speed="0.08"></div>
           </div>
-          <div class="title">Riverlight</div>
-          <p class="desc">水面的柔光與霧氣，把時間凝住的清晨。</p>
-        </a>
-        <a class="card gallery-card" href="#nocturne">
-          <img src="assets/images/thumbs/nocturne-thumb.svg" alt="Nocturne" />
-          <div class="meta">
-            <span class="tag">Photo</span>
-            <span>2023</span>
+          <div class="content">
+            <div>
+              <p class="tag" data-site="gallery.trans_tag">Transition</p>
+              <h2 data-site="gallery.trans_title">滑入作品列表</h2>
+              <p data-site="gallery.trans_desc">讓列表前有一段動態過場，模擬影片中轉入新場景的感覺。</p>
+            </div>
           </div>
-          <div class="title">Nocturne City</div>
-          <p class="desc">夜色街景的冷暖交錯，光跡刻出城市節奏。</p>
-        </a>
-        <a class="card gallery-card" href="#echo">
-          <img src="assets/images/thumbs/echo-thumb.svg" alt="Echo" />
-          <div class="meta">
-            <span class="tag">Motion</span>
-            <span>2024</span>
-          </div>
-          <div class="title">Echo</div>
-          <p class="desc">以流動的線條記錄風聲與水聲的脈動。</p>
-        </a>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="section fade-in" id="nocturne">
-      <h2>Nocturne City</h2>
-      <p class="note">攝影・2023・夜景、長曝，街景光跡與霧氣。</p>
-      <div class="grid gallery-grid">
-        <figure class="card gallery-card">
-          <img src="assets/images/full/nocturne-full.svg" alt="Nocturne 夜景" />
-          <figcaption class="meta">冷色街燈、雨後路面反光</figcaption>
-        </figure>
-      </div>
-    </section>
+      <section class="section fade-in" id="riverlight" data-editor-block="gallery.grid">
+        <div class="grid grid-3 gallery-grid">
+          <a class="card gallery-card" href="work-riverlight.html">
+            <img src="assets/images/thumbs/riverlight-thumb.svg" alt="Riverlight" />
+            <div class="meta">
+              <span class="tag">Painting</span>
+              <span>2024</span>
+            </div>
+            <div class="title">Riverlight</div>
+            <p class="desc">水面的柔光與霧氣，把時間凝住的清晨。</p>
+          </a>
+          <a class="card gallery-card" href="#nocturne">
+            <img src="assets/images/thumbs/nocturne-thumb.svg" alt="Nocturne" />
+            <div class="meta">
+              <span class="tag">Photo</span>
+              <span>2023</span>
+            </div>
+            <div class="title">Nocturne City</div>
+            <p class="desc">夜色街景的冷暖交錯，光跡刻出城市節奏。</p>
+          </a>
+          <a class="card gallery-card" href="#echo">
+            <img src="assets/images/thumbs/echo-thumb.svg" alt="Echo" />
+            <div class="meta">
+              <span class="tag">Motion</span>
+              <span>2024</span>
+            </div>
+            <div class="title">Echo</div>
+            <p class="desc">以流動的線條記錄風聲與水聲的脈動。</p>
+          </a>
+        </div>
+      </section>
 
-    <section class="section fade-in" id="echo">
-      <h2>Echo</h2>
-      <p class="note">Motion・2024・抽象線條，透過漸變與模糊記錄聲音節奏。</p>
-      <div class="grid gallery-grid">
-        <figure class="card gallery-card">
-          <img src="assets/images/full/echo-full.svg" alt="Echo 動態靜幀" />
-          <figcaption class="meta">色彩脈動的靜態截圖</figcaption>
-        </figure>
-      </div>
-    </section>
-  </main>
+      <section class="section fade-in" id="nocturne" data-editor-block="gallery.nocturne">
+        <h2 data-site="gallery.nocturne_title">Nocturne City</h2>
+        <p class="note" data-site="gallery.nocturne_desc">攝影・2023・夜景、長曝，街景光跡與霧氣。</p>
+        <div class="grid gallery-grid">
+          <figure class="card gallery-card">
+            <img src="assets/images/full/nocturne-full.svg" alt="Nocturne 夜景" />
+            <figcaption class="meta">冷色街燈、雨後路面反光</figcaption>
+          </figure>
+        </div>
+      </section>
 
-  <footer>
-    <div class="container footer-content">
-      <span data-site="footer">© 2024 Nina Studio</span>
-      <div class="social-inline">
-        <a class="glassIco" href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><i
-            class="fab fa-facebook-f"></i></a>
-        <a class="glassIco" href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><i
-            class="fab fa-instagram"></i></a>
-        <a class="glassIco" href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><i
-            class="fab fa-youtube"></i></a>
-        <a class="glassIco" href="mailto:st780426@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <section class="section fade-in" id="echo" data-editor-block="gallery.echo">
+        <h2 data-site="gallery.echo_title">Echo</h2>
+        <p class="note" data-site="gallery.echo_desc">Motion・2024・抽象線條，透過漸變與模糊記錄聲音節奏。</p>
+        <div class="grid gallery-grid">
+          <figure class="card gallery-card">
+            <img src="assets/images/full/echo-full.svg" alt="Echo 動態靜幀" />
+            <figcaption class="meta">色彩脈動的靜態截圖</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <span data-site="footer">© 2024 Nina Studio</span>
+        <div class="social-inline">
+          <a class="glassIco" href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><i
+              class="fab fa-facebook-f"></i></a>
+          <a class="glassIco" href="https://www.instagram.com" target="_blank" rel="noreferrer"
+            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="glassIco" href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><i
+              class="fab fa-youtube"></i></a>
+          <a class="glassIco" href="mailto:st780426@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <!-- Editor UI -->
   <div id="editor-sidebar" class="editor-sidebar">

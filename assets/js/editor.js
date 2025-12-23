@@ -1,235 +1,354 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const STORAGE_KEY = 'NINA_STUDIO_LIVE_CONTENT';
     const toggleBtn = document.getElementById('toggle-editor');
     const sidebar = document.getElementById('editor-sidebar');
     const accordion = document.getElementById('editor-accordion');
     const saveBtn = document.getElementById('save-content');
+
+    // Block Templates for Dynamic Insertion
+    const templates = {
+        'image-text': `
+            <section class="section img-text-block fade-in" data-editor-block="image-text">
+                <div class="container grid grid-2">
+                    <div class="text-content">
+                        <h2 data-site="dynamic.title">新圖文區塊</h2>
+                        <p data-site="dynamic.desc">在這裡輸入您的描述文字...</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5" alt="New Image">
+                    </div>
+                </div>
+            </section>
+        `,
+        'hero-simple': `
+            <section class="section hero-simple fade-in" data-editor-block="hero-simple" style="padding: 100px 0; text-align: center; background: #f5f5f5;">
+                <div class="container">
+                    <h1 data-site="dynamic.hero_title" style="font-size: 60px;">簡約標題</h1>
+                    <p data-site="dynamic.hero_desc">簡單的區塊描述文字，適合用來作為段落開頭。</p>
+                </div>
+            </section>
+        `
+    };
+
+    // Add Wrapper UI for Preview
+    const header = sidebar?.querySelector('.editor-header');
+    if (header) {
+        const controls = document.createElement('div');
+        controls.className = 'editor-header-controls';
+        controls.style.cssText = 'padding:10px; border-bottom:1px solid #eee; display:flex; gap:10px; justify-content:center;';
+        controls.innerHTML = `
+            <button class="device-btn active" data-device="desktop" title="電腦版">🖥️</button>
+            <button class="device-btn" data-device="tablet" title="平板版">📱</button>
+            <button class="device-btn" data-device="mobile" title="手機版">📱</button>
+        `;
+        header.after(controls);
+
+        const deviceBtns = controls.querySelectorAll('.device-btn');
+        deviceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                deviceBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const device = btn.dataset.device;
+                document.body.classList.remove('preview-mobile', 'preview-tablet');
+                if (device === 'mobile') document.body.classList.add('preview-mobile');
+                if (device === 'tablet') document.body.classList.add('preview-tablet');
+            });
+        });
+    }
+
     const exportBtn = document.createElement('button');
     exportBtn.id = 'export-code';
     exportBtn.className = 'btn-save secondary';
-    exportBtn.innerText = '產生同步代碼';
+    exportBtn.innerText = '同步代碼';
     exportBtn.style.cssText = 'margin-left:8px; background-color:#5f7c6b; font-size:12px; padding:6px 10px;';
 
     const resetBtn = document.createElement('button');
     resetBtn.id = 'reset-content';
     resetBtn.className = 'btn-save secondary';
-    resetBtn.innerText = '恢復檔案預設';
+    resetBtn.innerText = '恢復檔案';
     resetBtn.style.cssText = 'margin-left:8px; background-color:#999; font-size:12px; padding:6px 10px;';
 
-    // Add buttons
     if (saveBtn) {
         saveBtn.parentNode.appendChild(exportBtn);
         saveBtn.parentNode.appendChild(resetBtn);
     }
 
-    resetBtn.addEventListener('click', () => {
-        if (confirm('確定要捨棄暫存修改，恢復成原始檔案內容嗎？')) {
-            localStorage.removeItem(STORAGE_KEY);
-            location.reload();
-        }
-    });
+    // --- ENHANCED AUTO-SCANNER LOGIC ---
 
-    // Safety check for UI elements
-    const hasEditorUI = toggleBtn && sidebar && accordion && saveBtn;
+    function scanPageConfig() {
+        const sections = [];
 
-    const STORAGE_KEY = 'NINA_STUDIO_LIVE_CONTENT';
+        // 1. Global Section (Sticky items like Brand/Footer/Nav)
+        const globals = [];
+        if (document.querySelector('[data-site="brand"]'))
+            globals.push({ key: 'brand', label: '工作室 Logo 文字', selector: '[data-site="brand"]' });
 
-    // Define what's editable
-    const config = [
-        {
-            id: 'global',
-            label: '全站通用設定 (Global)',
-            fields: [
-                { key: 'brand', label: '工作室名稱', type: 'text', selector: '[data-site="brand"]' },
-                { key: 'footer', label: '頁腳文字', type: 'text', selector: '[data-site="footer"]' }
-            ]
-        },
-        {
-            id: 'hero',
-            label: '首頁 Banner (Hero)',
-            fields: [
-                { key: 'hero.title', label: '大標題', type: 'text', selector: '[data-site="hero.title"]' },
-                { key: 'hero.desc', label: '描述文字', type: 'textarea', selector: '[data-site="hero.desc"]' },
-                { key: 'hero.image', label: '主圖網址', type: 'text', selector: '.hero-image img', attr: 'src' }
-            ]
-        },
-        {
-            id: 'courses',
-            label: '課程清單',
-            listSelector: '.course-card',
-            fields: [
-                { label: '課程名稱', selector: 'h3' },
-                { label: '描述', selector: 'p' },
-                { label: '圖片網址', selector: 'img', attr: 'src' }
-            ]
-        }
-    ];
+        // Scan for nav items with [data-site]
+        document.querySelectorAll('nav [data-site]').forEach(el => {
+            const key = el.dataset.site;
+            globals.push({ key: `${key}.text`, label: `導覽文字: ${el.innerText}`, selector: `[data-site="${key}"]` });
+            if (el.tagName === 'A') {
+                globals.push({ key: `${key}.link`, label: `↳ 跳轉連結`, selector: `[data-site="${key}"]`, attr: 'href' });
+            }
+        });
 
-    // Apply saved changes from LocalStorage across pages
+        if (document.querySelector('[data-site="footer"]'))
+            globals.push({ key: 'footer', label: '頁腳版權文字', selector: '[data-site="footer"]' });
+
+        if (globals.length) sections.push({ id: 'global', label: '✨ 全站導覽與設定', fields: globals });
+
+        // 2. Page Sections ([data-editor-block])
+        document.querySelectorAll('[data-editor-block]').forEach((sec, idx) => {
+            const blockId = sec.dataset.editorBlock;
+            const blockLabel = sec.id ? `區塊: #${sec.id}` : `區塊: ${blockId}`;
+            const fields = [];
+
+            // Find all components within this block using data-site
+            sec.querySelectorAll('[data-site]').forEach(el => {
+                const key = el.dataset.site;
+                const shortLabel = key.split('.').pop().replace(/_/g, ' ');
+
+                // Add text edit
+                fields.push({ key: `${key}.text`, label: shortLabel, selector: `[data-site="${key}"]` });
+
+                // If link, add href control
+                if (el.tagName === 'A') {
+                    fields.push({ key: `${key}.link`, label: `↳ 連結 (${shortLabel})`, selector: `[data-site="${key}"]`, attr: 'href' });
+                }
+            });
+
+            // Find images
+            sec.querySelectorAll('img').forEach((img, i) => {
+                fields.push({
+                    key: `${blockId}.img.${i}`,
+                    label: `圖片 #${i + 1}`,
+                    context: img,
+                    attr: 'src'
+                });
+            });
+
+            // Section style
+            fields.push({
+                key: `${blockId}.bg`,
+                label: '背景顏色',
+                context: sec,
+                type: 'color',
+                style: 'backgroundColor'
+            });
+
+            sections.push({ id: `sec-${idx}`, label: `📦 ${blockLabel}`, fields });
+        });
+
+        return sections;
+    }
+
     function applySavedState() {
         const savedData = localStorage.getItem(STORAGE_KEY);
         if (!savedData) return;
-
         const data = JSON.parse(savedData);
 
-        // Apply static fields (using data-site or direct selectors)
-        Object.keys(data.static || {}).forEach(sel => {
-            const value = data.static[sel].val;
-            const attr = data.static[sel].attr;
-            document.querySelectorAll(sel).forEach(el => {
-                if (attr) el.setAttribute(attr, value);
-                else el.innerText = value;
-            });
-        });
-
-        // Apply list fields (like courses)
-        if (data.lists) {
-            Object.keys(data.lists).forEach(listSel => {
-                const listItems = document.querySelectorAll(listSel);
-                data.lists[listSel].forEach((itemData, idx) => {
-                    const itemEl = listItems[idx];
-                    if (itemEl) {
-                        Object.keys(itemData).forEach(fieldSel => {
-                            const { val, attr } = itemData[fieldSel];
-                            const el = itemEl.querySelector(fieldSel);
-                            if (el) {
-                                if (attr) el.setAttribute(attr, val);
-                                else el.innerText = val;
-                            }
-                        });
+        // Restore Dynamic Blocks
+        if (data.blocks) {
+            const main = document.querySelector('main');
+            if (main) {
+                main.querySelectorAll('[data-editor-block]').forEach(b => {
+                    if (templates[b.dataset.editorBlock]) b.remove();
+                });
+                data.blocks.forEach(bData => {
+                    const div = document.createElement('div');
+                    div.innerHTML = templates[bData.type] || '';
+                    const el = div.firstElementChild;
+                    if (el) {
+                        if (bData.styles) Object.keys(bData.styles).forEach(k => el.style[k] = bData.styles[k]);
+                        main.appendChild(el);
                     }
                 });
-            });
+            }
         }
+
+        // Apply styles/text/attributes
+        Object.keys(data.static || {}).forEach(key => {
+            const { val, attr, style, selector } = data.static[key];
+            const els = document.querySelectorAll(selector);
+            els.forEach(el => {
+                if (style) el.style[style] = val;
+                else if (attr) el.setAttribute(attr, val);
+                else el.innerText = val;
+            });
+        });
     }
 
-    // SCRAPE current DOM state and SAVE to LocalStorage
     function saveCurrentState() {
-        const state = { static: {}, lists: {} };
+        const state = { static: {}, blocks: [] };
 
-        config.forEach(section => {
-            if (section.listSelector) {
-                state.lists[section.listSelector] = [];
-                document.querySelectorAll(section.listSelector).forEach(item => {
-                    const itemState = {};
-                    section.fields.forEach(f => {
-                        const el = item.querySelector(f.selector);
-                        if (el) itemState[f.selector] = {
-                            val: f.attr ? el.getAttribute(f.attr) : el.innerText,
-                            attr: f.attr
-                        };
-                    });
-                    state.lists[section.listSelector].push(itemState);
-                });
-            } else {
-                section.fields.forEach(f => {
-                    const el = document.querySelector(f.selector);
-                    if (el) state.static[f.selector] = {
-                        val: f.attr ? el.getAttribute(f.attr) : el.innerText,
-                        attr: f.attr
-                    };
+        document.querySelectorAll('[data-editor-block]').forEach(el => {
+            if (templates[el.dataset.editorBlock]) {
+                state.blocks.push({
+                    type: el.dataset.editorBlock,
+                    styles: { backgroundColor: el.style.backgroundColor }
                 });
             }
         });
 
+        const currentConfig = scanPageConfig();
+        currentConfig.forEach(section => {
+            section.fields.forEach(f => {
+                const el = f.context || document.querySelector(f.selector);
+                if (el) {
+                    let val;
+                    if (f.style) val = el.style[f.style];
+                    else if (f.attr) val = el.getAttribute(f.attr);
+                    else val = el.innerText;
+
+                    state.static[f.key] = {
+                        val,
+                        attr: f.attr,
+                        style: f.style,
+                        selector: f.selector || null
+                    };
+                }
+            });
+        });
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     }
 
-    // Initialize Editor UI
-    function initEditor() {
-        accordion.innerHTML = '';
-        config.forEach(section => {
-            const group = document.createElement('div');
-            group.className = 'editor-group';
-            group.innerHTML = `<h4 style="margin: 30px 0 15px; color: #000; font-size: 14px; border-left: 3px solid #000; padding-left: 10px;">${section.label}</h4>`;
-
-            if (section.listSelector) {
-                const items = document.querySelectorAll(section.listSelector);
-                items.forEach((item, index) => {
-                    const itemBox = document.createElement('div');
-                    itemBox.style.padding = '15px'; itemBox.style.background = '#f9f9f9'; itemBox.style.marginBottom = '10px';
-                    itemBox.innerHTML = `<div style="font-size: 11px; color: #999; margin-bottom: 10px;">項目 #${index + 1}</div>`;
-                    section.fields.forEach(field => itemBox.appendChild(createFieldUI(field, item)));
-                    group.appendChild(itemBox);
-                });
-            } else {
-                section.fields.forEach(field => group.appendChild(createFieldUI(field, document)));
-            }
-            accordion.appendChild(group);
-        });
-    }
-
-    function createFieldUI(field, context) {
+    function createFieldUI(field) {
         const wrap = document.createElement('div');
-        wrap.style.marginBottom = '12px';
-        const label = document.createElement('label'); label.textContent = field.label;
-        const target = context.querySelector(field.selector);
-        const input = field.type === 'textarea' ? document.createElement('textarea') : document.createElement('input');
+        wrap.className = 'editor-field-row';
+        wrap.innerHTML = `<label style="text-transform: capitalize;">${field.label}</label>`;
 
+        const inputGroup = document.createElement('div');
+        inputGroup.className = 'editor-input-group';
+
+        let input;
+        const target = field.context || document.querySelector(field.selector);
+        let currentVal = '';
         if (target) {
-            input.value = field.attr ? target.getAttribute(field.attr) : target.innerText;
+            if (field.style) currentVal = getComputedStyle(target)[field.style];
+            else if (field.attr) currentVal = target.getAttribute(field.attr);
+            else currentVal = target.innerText;
         }
 
-        input.addEventListener('input', (e) => {
-            const val = e.target.value;
-            const el = context.querySelector(field.selector);
-            if (el) {
-                if (field.attr) el.setAttribute(field.attr, val);
-                else el.innerText = val;
-            }
-        });
+        if (field.type === 'color') {
+            const colorWrap = document.createElement('div');
+            colorWrap.className = 'color-input-wrap';
+            colorWrap.style.backgroundColor = currentVal;
+            input = document.createElement('input');
+            input.type = 'color';
+            input.value = rgbToHex(currentVal) || '#ffffff';
+            colorWrap.appendChild(input);
+            inputGroup.appendChild(colorWrap);
+            input.addEventListener('input', (e) => {
+                colorWrap.style.backgroundColor = e.target.value;
+                updateTarget(field, e.target.value);
+            });
+        } else {
+            const isTextarea = currentVal.length > 50 || field.label.includes('desc') || field.label.includes('內文');
+            input = isTextarea ? document.createElement('textarea') : document.createElement('input');
+            input.value = currentVal;
+            inputGroup.appendChild(input);
+            input.addEventListener('input', (e) => updateTarget(field, e.target.value));
+        }
 
-        wrap.appendChild(label); wrap.appendChild(input);
+        wrap.appendChild(inputGroup);
         return wrap;
     }
 
-    // Apply saved state before building editor (Runs on all pages)
+    function updateTarget(field, val) {
+        const els = field.context ? [field.context] : document.querySelectorAll(field.selector);
+        els.forEach(el => {
+            if (field.style) el.style[field.style] = val;
+            else if (field.attr) el.setAttribute(field.attr, val);
+            else el.innerText = val;
+        });
+    }
+
+    function rgbToHex(rgb) {
+        if (!rgb || !rgb.startsWith('rgb')) return rgb;
+        const parts = rgb.match(/\d+/g);
+        if (!parts) return '#ffffff';
+        const hex = (x) => ("0" + parseInt(x).toString(16)).slice(-2);
+        return "#" + hex(parts[0]) + hex(parts[1]) + hex(parts[2]);
+    }
+
+    function initEditor() {
+        if (!accordion) return;
+        accordion.innerHTML = '';
+        const currentConfig = scanPageConfig();
+
+        currentConfig.forEach(section => {
+            const group = document.createElement('div');
+            group.className = 'editor-group';
+            group.innerHTML = `<h4>${section.label}</h4>`;
+            section.fields.forEach(f => group.appendChild(createFieldUI(f)));
+            accordion.appendChild(group);
+        });
+
+        // Dynamic Block Management
+        const blockGroup = document.createElement('div');
+        blockGroup.className = 'editor-group';
+        blockGroup.innerHTML = `<h4>➕ 區塊範本庫</h4>`;
+
+        const menu = document.createElement('select');
+        menu.style.cssText = 'width:100%; padding:8px; font-size:12px; margin-bottom:10px;';
+        menu.innerHTML = `<option value="">選擇要插入的範本...</option>
+                          <option value="image-text">圖文內容區塊</option>
+                          <option value="hero-simple">簡約 Banner</option>`;
+
+        menu.onchange = (e) => {
+            const type = e.target.value;
+            if (type && templates[type]) {
+                const main = document.querySelector('main');
+                const div = document.createElement('div');
+                div.innerHTML = templates[type];
+                main.appendChild(div.firstElementChild);
+                e.target.value = '';
+                initEditor();
+            }
+        };
+
+        const list = document.createElement('div');
+        document.querySelectorAll('[data-editor-block]').forEach((el, i) => {
+            if (templates[el.dataset.editorBlock]) {
+                const item = document.createElement('div');
+                item.style.cssText = 'background:#f0f0f0; padding:6px 10px; border-radius:4px; font-size:11px; margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;';
+                item.innerHTML = `<span>自定義區塊 #${i + 1}</span> <button style="color:#ff4444; background:none; border:none; cursor:pointer; font-weight:bold;">✕</button>`;
+                item.querySelector('button').onclick = () => { el.remove(); initEditor(); };
+                list.appendChild(item);
+            }
+        });
+
+        blockGroup.appendChild(menu);
+        blockGroup.appendChild(list);
+        accordion.appendChild(blockGroup);
+    }
+
     applySavedState();
 
-    if (hasEditorUI) {
-        // Toggle functionality
+    if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             sidebar.classList.toggle('active');
             document.body.classList.toggle('editing-active');
+            if (sidebar.classList.contains('active')) initEditor();
         });
 
-        // REAL SAVE
         saveBtn.addEventListener('click', () => {
-            saveBtn.innerText = '儲存中...';
             saveCurrentState();
-            setTimeout(() => {
-                saveBtn.innerText = '已儲存！';
-                setTimeout(() => { saveBtn.innerText = '儲存設定'; }, 2000);
-            }, 500);
+            saveBtn.innerText = '✅ 已儲存';
+            setTimeout(() => { saveBtn.innerText = '儲存設定'; }, 2000);
         });
 
-        // EXPORT FOR AI SYNC
         exportBtn.addEventListener('click', () => {
-            const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-            const formatted = JSON.stringify(data, null, 2);
-
-            // Create a persistent overlay to show code
-            const overlay = document.createElement('div');
-            overlay.style = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; display:flex; align-items:center; justify-content:center; padding:20px;';
-            overlay.innerHTML = `
-                <div style="background:#fff; padding:30px; border-radius:12px; max-width:600px; width:100%; box-shadow:0 20px 40px rgba(0,0,0,0.3);">
-                    <h2 style="margin-top:0; color:#333;">同步至原始碼</h2>
-                    <p style="color:#666; font-size:14px;">請複製下方代碼並貼回給 <b>Antigravity</b>，我將為您更新 site.json 與所有實體檔案。</p>
-                    <textarea readonly style="width:100%; height:300px; padding:15px; font-family:monospace; border:1px solid #ddd; border-radius:6px; margin:15px 0; background:#f9f9f9; font-size:12px;">${formatted}</textarea>
-                    <div style="display:flex; justify-content:flex-end; gap:10px;">
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" style="padding:10px 20px; border:none; background:#eee; cursor:pointer; border-radius:4px;">關閉</button>
-                        <button id="copy-sync-btn" style="padding:10px 20px; border:none; background:#222; color:#fff; cursor:pointer; border-radius:4px;">複製代碼</button>
-                    </div>
-                </div>
-           `;
-            document.body.appendChild(overlay);
-
-            document.getElementById('copy-sync-btn').onclick = () => {
-                navigator.clipboard.writeText(formatted);
-                document.getElementById('copy-sync-btn').innerText = '已複製！';
-            };
+            const data = localStorage.getItem(STORAGE_KEY);
+            alert("同步代碼已複製到剪貼簿！請將其發送給 AI。");
+            navigator.clipboard.writeText(data);
         });
 
-        initEditor();
+        resetBtn.addEventListener('click', () => {
+            if (confirm('確定恢復原始狀態？這將清除目前的暫存修改。')) {
+                localStorage.removeItem(STORAGE_KEY);
+                location.reload();
+            }
+        });
     }
 });
-
